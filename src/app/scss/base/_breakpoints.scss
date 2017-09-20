@@ -1,0 +1,16 @@
+/* Bourbon Neat Breakpoints*/
+$mobile-small :new-breakpoint(max-width 480px);
+$mobile: new-breakpoint(max-width 500px);
+$mobile-up: new-breakpoint(min-width 660px);
+$mobile-down: new-breakpoint(max-width 659px);
+
+$desktop: new-breakpoint(min-width 768px);
+$desktop-down: new-breakpoint(max-width 767px);
+$desktop-up: new-breakpoint(min-width 1000px);
+
+$tablet-up: new-breakpoint(min-width 660px);
+$tablet: new-breakpoint(min-width 1100px);
+$tablet-down: new-breakpoint(max-width 1100px);
+
+$lg-up: new-breakpoint(min-width 1200px);
+$lg-down: new-breakpoint(max-width 1200px);

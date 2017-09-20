@@ -1,0 +1,35 @@
+.btn {
+	font-family: $display;
+	display:inline-block;
+	font-size: 1.3rem;
+	line-height: 0;
+	letter-spacing: 1px;
+	height: auto;
+	padding:1.3rem 1.2rem 1.1rem;
+	border-radius:2rem;
+	text: {
+		transform: uppercase;
+		decoration: none;
+		align:center;
+	}
+
+	&-primary {
+		border: 2px solid $blue-150;
+		color:$blue-300;
+		background: $white;
+
+	}
+
+	&-secondary {
+		color: $white;
+		@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
+		transition: all .25s linear;
+		shadow:1px 1px 1px rgba($black, 0.7);
+		&:hover {
+					transform:translateY(1px);
+					box-shadow: 0px 4px 6px rgba($blue-300, .08),
+											 0px 8px 13px rgba($blue-300,.08),
+											 0px 18px 23px rgba($blue-300,.08);
+		}
+	}
+}//btn

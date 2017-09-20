@@ -55,8 +55,7 @@
     "type": "git",
     "url": "git+https://github.com/rh-uxd/dxp-fieldconnect.git"
   },
-  "authors": [
-  ],
+  "authors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rh-uxd/dxp-fieldconnect/issues"

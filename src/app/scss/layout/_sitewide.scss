@@ -1,0 +1,451 @@
+body {
+	@include media($desktop) {
+		background:url('images/masthead-bg-full.svg') repeat-y;
+	}
+}
+
+.page-section  {
+	padding-bottom: 2rem;
+	background: $blue-100;
+	@include media($desktop) {
+		padding-bottom: 4rem;
+	}
+	&--header {
+		margin-bottom: 2rem;
+		@include media($desktop) {
+			margin-bottom: 4rem;
+		}
+		display:flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content:space-between;
+		padding:2.5% 2.5% 2.5% 8%;
+		@include linear-gradient(to right,$grey-100, $grey-150 7%, $grey-100 50%, $grey-100 70%, $grey-150 );
+		position:relative;
+		color:$grey-400;
+		text-transform: capitalize;
+		@include media($mobile-up) {
+			justify-content: flex-start;
+			padding:.5rem 2rem;
+		}
+			&:before  {
+				@include psuedo;
+				@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
+				width: 15px;
+				left:0;
+				top: 0;
+				height:100%;
+				-webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+				clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+			}
+	.page-count {
+		width:100%;
+		margin:2.5% 0 0 0;
+		@include media($mobile-up) {
+			margin:0 0 0 auto;
+			width:auto;
+		}
+	}
+	}//header
+}//page-section
+
+
+// --------- feature table
+
+.status-table  {
+	width:calc(100% - 2rem);
+	margin: 0 auto;
+	background: $white;
+	border-radius: .5rem;
+	overflow: hidden;
+	box-shadow: 0px 4px 6px rgba($grey-500, .02),
+							 0px 8px 13px rgba($grey-500,.02),
+							 0px 18px 23px rgba($grey-500,.02);
+
+	thead {
+		text-align:left;
+		background:$grey-100;
+		}
+	th {
+		padding:1rem 0;
+		&:nth-of-type(-n+2) {
+			padding-left:1.5rem;
+		}
+		&:nth-last-of-type(-n+2) {
+			text-align: right;
+		}
+		&:last-of-type {
+			padding-right: 1.5rem;
+		}
+	}//th
+	tr {
+		&:not(:last-of-type) {
+			border-bottom: 1px solid $grey-100;
+		}
+	}//tr
+	td {
+		padding:.5rem;
+		text-transform: capitalize;
+		@include media($mobile-up) {
+			padding:1.5rem;
+		}
+		&:first-of-type {
+			font-family: $body-bold;
+			color:$grey-400;
+		}
+		@include media($mobile-up) {
+			&:nth-last-of-type(-n+2) {
+				text-align: right;
+			}
+			&:last-of-type {
+				text-transform: uppercase;
+			}
+		}
+	}//td
+	a {
+		color:$blue-300;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-family: $body-bold;
+		transition: color .25s linear;
+			&:hover {
+				color:$red;
+			}
+	}//a
+	.status {
+		color:$grey-300;
+		font-family: $body-bold;
+		text-transform: capitalize;
+		position: relative;
+			&:after {
+				@include psuedo;
+				width: 16px;
+				height: 18px;
+				right:20px;
+				transform: translateY(-50%);
+				top: 50%;
+				@include media($mobile-up) {
+					right: 0;
+				}
+			}
+			&-inprogress {
+				&:after {
+					background:url('images/icon-sprite.svg') 0 -1px no-repeat;
+				}
+			}
+			&-released {
+				&:after {
+					background:url('images/icon-sprite.svg') 0 -22px no-repeat;
+				}
+			}
+			&-blocked {
+				&:after {
+					background:url('images/icon-sprite.svg') 0 -43px no-repeat;
+				}
+			}
+	}//.status
+
+//this is just for mobile to break the table down.
+	@include media($mobile-down) {
+	 thead {
+	   border: none;
+	   clip: rect(0 0 0 0);
+	   height: 1px;
+	   margin: -1px;
+	   overflow: hidden;
+	   padding: 0;
+	   position: absolute;
+	   width: 1px;
+	 }
+	 td {
+     display: block;
+     text-align: left;
+		 &:first-of-type {
+			 background: $grey-100;
+		 }
+		 &:last-of-type {
+			 border: none;
+		 }
+		 &:before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+  		width:100%;
+  		text-align: left;
+			font-family: $body-bold;
+			color:$grey-500;
+		}
+	 }
+ }
+
+}//status-table
+
+
+//---------------------- card-wrapper styles
+
+.cards {
+	padding: 0 5%;
+	@include media($mobile-up) {
+		padding: 0 1rem;
+	}
+	display:grid;
+	width:100%;
+	grid-gap: 2rem;
+}
+
+.cards--sm {
+
+	@include media($mobile-up) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include media($tablet) {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+}
+.cards--lg {
+	@include media($desktop) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+}
+
+//individual card styles
+.card {
+	background: $white;
+	border-radius: .5rem;
+	box-shadow: 0px 4px 6px rgba($grey-500, .02),
+							 0px 8px 13px rgba($grey-500,.02),
+							 0px 18px 23px rgba($grey-500,.02);
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	flex-wrap: wrap;
+	transition: all .25s linear;
+
+	&-header {
+		display:flex;
+		flex-wrap:wrap;
+		align-items: center;
+		justify-content: space-between;
+		color:$purple-200;
+			.h3,.h4 {
+				font-family: $body-bold;
+			}
+
+			&-meta {
+				display: flex;
+				flex-direction: column;
+				text-align: right;
+
+					small {
+						color:$grey-300;
+						font-family: $body-bold;
+						text-transform: uppercase;
+					}
+			}//meta
+
+		&--sm {
+			border-bottom:1px solid $grey-200;
+			margin-bottom: 2rem;
+			padding-bottom: 1rem;
+		}
+
+		&--lg {
+			background:$grey-100;
+			border-radius: .5rem .5rem 0 0;
+			padding:5%;
+			@include media($mobile-up) {
+				padding:1rem;
+			}
+		}
+
+	}//header
+
+	&-content {
+		padding:5%;
+		.h3 {
+			font-family: $body-bold;
+			text-transform: uppercase;
+			color:$blue-300;
+			& + .h3 {
+				margin-bottom: 1rem;
+			}
+		}//h3
+
+	}//content (this is just for larger cards)
+
+	&-ctas {
+		display:flex;
+		align-items: baseline;
+		.cta {
+			text-decoration: none;
+			position:relative;
+			color: $grey-400;
+			flex:0 0 auto;
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			margin:5% 0 0 0;
+			@include media($desktop) {
+				margin:6rem 0 0 0;
+			}
+			min-width: 90px;
+
+				&-title {
+					letter-spacing: 1px;
+					margin-top: 1rem;
+					font: {
+						family:$display;
+						size:1.2rem;
+					}
+					text : {
+						transform: uppercase;
+					}
+				}//title
+			&:not(:first-of-type) {
+				border-left:1px solid $grey-200;
+				padding:0 2rem;
+			}
+			&:nth-last-of-type(2) {
+				margin-right: 2rem;
+			}
+			.btn {
+				opacity: 0;
+				position:absolute;
+				bottom:-.5rem;
+				left:50%;
+				transition: all .25s linear;
+				transform: translateX(-50%);
+			}
+
+			svg .icon {
+				transition: opacity .25s linear;
+
+			}
+			svg {
+				.magic {
+					opacity: 0;
+				}
+				.magic-1 {
+					transform: translateY(10px);
+					transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				}
+				.magic-2 {
+					transform: translateY(9px);
+					transition: all 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				}
+				.magic-3 {
+					transform: translateY(8px);
+					transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				}
+				.magic-4 {
+					transform: translateY(7px);
+					transition: all 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+				}
+			}//svg
+
+			&:hover {
+				svg .icon {
+					opacity: .5;
+				}
+				svg {
+					.magic {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+				.btn {
+					opacity: 1;
+					bottom:2rem;
+				}
+			}
+		}//cta
+
+	}//ctas (icons in large cards)
+
+	.btn {
+		margin: 3rem auto 0;
+		transition: all .35s linear;
+	}
+
+	&--sm {
+		padding:1rem;
+		.btn {
+			&:hover {
+						transform:translateY(1px);
+						box-shadow: 0px 4px 6px rgba($blue-300, .08),
+												 0px 8px 13px rgba($blue-300,.08),
+												 0px 18px 23px rgba($blue-300,.08);
+			}
+		}
+		& > .h4 {
+			font-family: $body;
+		}
+	}//--sm just small cards
+
+	&:hover {
+		box-shadow: 0px 4px 6px rgba($grey-500, .08),
+								 0px 8px 13px rgba($grey-500,.08),
+								 0px 18px 23px rgba($grey-500,.08);
+	}//card hover
+
+}//card
+
+// ----- pagination for cards
+
+.pagination {
+	display: flex;
+	@include media($mobile-up) {
+		margin: 0 1rem;
+	}
+	 &-link {
+		 background:$purple-200;
+		 text-decoration: none;
+		 width:25px;
+		 height: 25px;
+		 display:flex;
+		 justify-content: center;
+		 align-items: center;
+		 border-radius: 50%;
+		 @include hide-txt;
+		 	&:first-child {
+				margin-right:.5rem;
+			}
+			&:before {
+				font-size:.8rem;
+				font-weight: bold;
+				color:$white;
+			}
+			&--prev:before {
+				content: '\276E';
+			}
+			&--next:before {
+				content: '\276F';
+			}
+			&:hover {
+				@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
+			}
+	 }
+}
+
+.disabled {
+	opacity: .3;
+	pointer-events: none;
+  cursor: default;
+}
+
+.lazy-load {
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	padding:3rem 0;
+	.btn {
+		margin-top: 1rem;
+	}
+}

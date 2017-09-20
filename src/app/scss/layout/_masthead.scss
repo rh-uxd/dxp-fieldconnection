@@ -1,0 +1,71 @@
+.masthead {
+	display:flex;
+	align-content: stretch;
+	flex-direction: column;
+	justify-content: space-between;
+	height:100vh;
+	overflow-x: hidden;
+	@include linear-gradient(42deg, rgba($teal,0.1) 0%, rgba($teal,0.1) 50%, rgba($blue-300,0.1) 100%);
+	h1,h2 {
+		text-transform: uppercase;
+		text-align: center;
+		padding:0 1rem;
+
+	}
+	h1 {
+		@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
+		-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+		font-size:calc( 50px + (200 - 100) * (100vw - 320px) / (1920 - 320) );
+		line-height: normal;
+		animation: move-up .5s;
+		animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  	animation-delay:.5s;
+  	animation-fill-mode:forwards;
+  	animation-iteration-count: 1;
+	}
+	h2 {
+		color: $red;
+		font-size:1.5rem;
+		@include media($desktop) {
+			font-size: 3rem;
+		}
+		animation: move-down .5s;
+		animation-timing-function:cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-delay:.5s;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
+	}
+	.masthead-titles {
+		display:flex;
+		align-items: center;
+ justify-content: center;
+ flex-direction: column;
+	}
+	svg {
+		.left-bubble  {
+			animation: left-bubble 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			animation-delay:.5s;
+			animation-fill-mode:forwards;
+		  animation-iteration-count: 1;
+			opacity: 0;
+		}
+		.right-bubble  {
+			animation: right-bubble 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			animation-delay:.5s;
+			opacity: 0;
+			animation-fill-mode:forwards;
+		  animation-iteration-count: 1;
+		}
+		.bubble {
+			mix-blend-mode: multiply;
+		}
+	}
+
+	& +.page-section { // this is for proper spacing for the sections.
+		padding-top: 2rem;
+		@include media($desktop) {
+			padding-top: 4rem;
+		}
+	}
+}//masthead

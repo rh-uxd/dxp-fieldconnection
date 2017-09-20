@@ -1,0 +1,239 @@
+.filter {
+	color:$white;
+	display:flex;
+	flex-wrap: wrap;
+	width: 100%;
+	transition: all 0.25s linear;
+}
+
+.filter-active {
+	padding:1rem;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	background:$purple-200;
+	h4 {
+		display:none;
+		@include media($desktop) {
+			display: block;
+			font-family: $body;
+			flex:1 0 auto;
+		}
+	}
+	.btn {
+		@include media($desktop) {
+			display:none;
+		}
+	}
+	ul {
+		display:none;
+		@include media($desktop) {
+			display:flex;
+		}
+		width: 100%;
+		list-style: none;
+		padding:0;
+		margin:0;
+			li {
+				font-size:1.3rem;
+				letter-spacing: 1px;
+				color:inherit;
+				text-decoration: none;
+				font-family: $display;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin-left:1rem;
+				display:flex;
+				align-items: center;
+
+
+					span:hover {
+						background:$purple-200;
+						&:before,&:after {
+							background:$white;
+						}
+					}
+
+				&:not(.toggle) {
+					position:relative;
+					padding:3px 5px 2px 15px;
+					background:$purple-200;
+					z-index: 1;
+					&:before,&:after {
+						@include psuedo;
+						border-radius: 30px;
+					}
+						&:after {
+							width: 100%;
+							height: 100%;
+							left:0;
+							top: 0;
+							z-index: -2;
+						}
+						&:before {
+							width:calc(100% - 3px);
+							height:calc(100% - 3px);
+							background:$purple-200;
+							z-index: -1;
+							left:50%;
+							top:50%;
+							transform:translate(-50%,-50%);
+						}
+				}
+
+				&.toggle {
+					border-radius: 100%;
+					width:26px;
+					height: 26px;
+					transition: all .25s linear;
+				}
+			}
+
+			span {
+				@include hide-txt;
+				cursor: pointer;
+				width:20px;
+				height: 20px;
+				background:$white;
+				border-radius: 100%;
+				position: relative;
+				transition: all .25s linear;
+				&:before,&:after {
+					content:'';
+					width:10px;
+					height: 2px;
+					background:$purple-200;
+					position: absolute;
+					display:block;
+					margin-top:-1px;
+					margin-left:-5px;
+					left:50%;
+					top:50%;
+					transition: all .25s linear;
+					transform:translate(-50%,-50%);
+				}
+				&.close {
+					transform: translate(-1px,-.5px);
+					margin-left: 10px;
+					&:before {
+						transform: rotate(45deg);
+					}
+					&:after {
+						transform: rotate(-45deg);
+					}
+				}
+			}
+	}
+}
+.filter:not(.filter-expanded) {
+	.filter-options {
+		display:none;
+	}
+	.toggle {
+		border: 1px solid $white;
+		transform:translateY(4px);
+		.action {
+			transform: translate(2px,0px);
+			&:before {
+				transform: rotate(180deg);
+			}
+			&:after {
+				transform: rotate(90deg);
+			}
+		}
+	}
+}
+.filter-expanded {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	.btn {
+		&:before {
+			content:'close ';
+		}
+	}
+	.toggle {
+		margin-left: auto;
+		border: 1px solid $white;
+		@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
+		.action {
+			transform: translateX(2px);
+			background:none;
+			&:before {
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}
+
+.filter-options {
+	width: 100%;
+	height: 100%;
+	background: $purple-100;
+	display:flex;
+	align-content: flex-start;
+	flex-wrap:wrap;
+	padding:1rem;
+	@include media($desktop) {
+		padding:2rem 1rem;
+	}
+		p {
+			color: $blue-300;
+			flex:0 0 100%;
+			margin-bottom: 2rem;
+		}
+		.filter-group {
+			flex:1 1 auto;
+			display: flex;
+			flex-direction:column;
+				&-item {
+					margin-bottom:1rem;
+					position: relative;
+				}
+		}
+		label {
+			text-transform: uppercase;
+			cursor: pointer;
+			font-family: $body-bold;
+			font-size: 1rem;
+		}
+		input[type=checkbox] {
+			margin:0 1rem;
+		}
+		.radio-btn {
+			margin-right:1rem;
+			position: absolute;
+			visibility: hidden;
+			& + label {
+				font-family: $body-bold;
+			}
+			&:checked ~ .label  {
+				color: $blue-300;
+			}
+			&:checked ~ .label::before  {
+				border: 5px solid $blue-300;
+				background: $white;
+			}
+		}
+		.label  {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			transition: all 0.25s linear;
+		}
+		.label::before  {
+			display: block;
+			content: '';
+			border: 3px solid $white;
+			border-radius: 50%;
+			height: 18px;
+			width: 18px;
+			margin-right: 10px;
+			transition: all .25s linear;
+		}
+}

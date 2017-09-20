@@ -1,14 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html class="wf-loading" lang="en">
 <head>
   <meta charset="utf-8">
   <title>DxpFieldconnect</title>
   <base href="/">
-
+  <script src="https://use.typekit.net/diw8pts.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <style>
+    .wf-loading {
+      /* Hide the text while web fonts are loading */
+      visibility: hidden;
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body class="fadein">
   <app-root></app-root>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $('#filter-toggle, .toggle').click( function() {
+    $(".filter").toggleClass("filter-expanded");
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+  } );
+  jQuery( document ).ready( function( $ ) {
+  	var body = document.body,
+          doc = document.documentElement;
+      $(window).scroll(function () {
+          body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
+      });
+  });
+  </script>
 </body>
 </html>

@@ -1,4 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://use.typekit.net/diw8pts.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <title>Field Voice</title>
+</head>
+<body class="fadein">
   <section class="masthead">
     <header class="header-main">
     <img class="logo" src="images/DxP_field-logo.svg" alt="Design Exchange Program Feild data" />
@@ -164,8 +175,8 @@
     <header class="page-section--header">
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
       <div class="pagination">
-        <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
-        <a class="pagination-link pagination-link--next" href="">next</a>
+        <a class="pagination-link pagination-link--prev disabled" href=""></a>
+        <a class="pagination-link pagination-link--next" href=""></a>
       </div>
       <small class="page-count"><strong>page 1</strong> of 4</small>
     </header>
@@ -300,3 +311,20 @@
     <a href="" class="btn btn-secondary">load more</a>
   </div>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$('#filter-toggle, .toggle').click( function() {
+  $(".filter").toggleClass("filter-expanded");
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  return false;
+} );
+jQuery( document ).ready( function( $ ) {
+	var body = document.body,
+        doc = document.documentElement;
+    $(window).scroll(function () {
+        body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
+    });
+});
+</script>
+</body>
+</html>

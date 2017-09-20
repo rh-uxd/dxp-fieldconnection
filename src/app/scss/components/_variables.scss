@@ -1,0 +1,34 @@
+@include font-face(regular, "/fonts/overpass-regular-webfont");
+@include font-face(bold, "/fonts/overpass-bold-webfont");
+
+$display: "alternate-gothic-no-1-d", Arial, Helvetica, FreeSans, sans-serif, "open-serif", open-serif;
+$body: "regular", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$body-bold: "bold", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+
+$blue-100:   #e6eaef;
+$blue-150:   #d2dae5;
+$blue-200:   #209cff;
+$blue-300:   #1185c7;
+$blue-400:   #2a3843;
+
+$green-100:  #f0f64c;
+$green-200:  #80d833;
+
+$purple-100:  #19222d;
+$purple-200:  #1e2a35;
+
+$red:        #ca2129;
+$teal:       #68e0cf;
+$yellow:     #f6d365;
+$orange:     #ff734c;
+
+$grey-100:   #f5f7fa;
+$grey-150:   #f2f2f2;
+$grey-200:   #c3cfe2;
+$grey-300:   #aab9bf;
+$grey-400:   #3e4543;
+$grey-500:   #2d2d2d;
+
+$black:      #1d2128;
+$white:      #fff;

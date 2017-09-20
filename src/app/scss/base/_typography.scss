@@ -1,0 +1,76 @@
+@mixin font-size($sizeValue: 16, $line: $sizeValue * 1.5) {
+    font-size: ($sizeValue) + px;
+    line-height: ($line) + px;
+    font-size: ($sizeValue / 16) + rem;
+    line-height: ($line / 16) + rem;
+}
+
+body {
+	font-family: $body;
+	font-weight: 500;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-perspective: 1000;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+  font-size: $body; // using clases to assign font size to encourage semantic use of headings
+	letter-spacing: 1px;
+	font-weight: normal;
+	font-family: $display;
+}
+
+
+	.h1 {
+    @include font-size(24);
+    @include media($desktop-down){
+			@include font-size(28);
+		}
+    @include media($desktop){
+			@include font-size(32);
+		}
+	}
+	.h2 {
+    @include font-size(22);
+		@include media($desktop){
+			@include font-size(28);
+		}	
+	}
+	.h3 {
+    @include font-size(18);
+    @include media($mobile-up){
+      @include font-size(22);
+    }
+	}
+	.h4 {
+		font-family: $display;
+    @include font-size(16);
+    @include media($mobile-up){
+      @include font-size(18);
+    }
+	}
+	.h5 {
+		font-family: $display;
+		@include font-size(16);
+	}
+
+
+small {
+	color: $black;
+  @include font-size(13);
+}
+
+p {
+  @include font-size(18);
+	@include media($mobile-up) {
+		@include font-size(20);
+	}
+  margin:0;
+	font-family:$body;
+	color:$grey-500;
+}
