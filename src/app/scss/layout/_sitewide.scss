@@ -1,6 +1,6 @@
 body {
 	@include media($desktop) {
-		background:url('images/masthead-bg-full.svg') repeat-y;
+		background:url('assets/masthead-bg-full.svg') repeat-y;
 	}
 }
 
@@ -130,17 +130,17 @@ body {
 			}
 			&-inprogress {
 				&:after {
-					background:url('images/icon-sprite.svg') 0 -1px no-repeat;
+					background:url('assets/icon-sprite.svg') 0 -1px no-repeat;
 				}
 			}
 			&-released {
 				&:after {
-					background:url('images/icon-sprite.svg') 0 -22px no-repeat;
+					background:url('assets/icon-sprite.svg') 0 -22px no-repeat;
 				}
 			}
 			&-blocked {
 				&:after {
-					background:url('images/icon-sprite.svg') 0 -43px no-repeat;
+					background:url('assets/icon-sprite.svg') 0 -43px no-repeat;
 				}
 			}
 	}//.status
