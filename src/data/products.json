@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "openshiftio",
+      "name": "OpenShift.Io"
+    }, {
+      "id": "ipaas",
+      "name": "iPaas"
+    }, {
+      "id": "openshift",
+      "name": "OpenShift"
+    }, {
+      "id": "satellite",
+      "name": "Satellite"
+    }
+  ]
+}
