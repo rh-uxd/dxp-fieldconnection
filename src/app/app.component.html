@@ -114,38 +114,41 @@
       <small class="page-count"><strong>page 1</strong> of 4</small>
     </header>
     <div class="cards cards--sm">
-      <div class="card card--sm">
+      <div class="card card--sm" *ngFor="let feedback of feedbacks">
         <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-a product-icon product-icon--sm"></i>Openshift.io</h3>
-          <time datetime="2007-08-14">08 | 14 | 2017</time>
+          <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
+          <div class="card-header-meta">
+            <small>expires on</small>
+            <time>{{feedback.expirationDate | date: "MM | dd | yyyy" }}</time>
+          </div>
         </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">Add to calendar</a>
+        <h4 class="h4">{{feedback.title}}</h4>
+        <a href="#" class="btn btn-primary" target="_blank">add to calendar</a>
       </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-c product-icon product-icon--sm"></i>iPaas</h3>
-          <time datetime="2007-08-14">08 | 14 | 2017</time>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">Add to calendar</a>
-      </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-b product-icon product-icon--sm"></i>Satellite</h3>
-          <time datetime="2007-08-14">08 | 14 | 2017</time>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">Add to calendar</a>
-      </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-a product-icon product-icon--sm"></i>Openshift.io</h3>
-          <time datetime="2007-08-14">08 | 14 | 2017</time>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">Add to calendar</a>
-      </div>
+      <!--<div class="card card&#45;&#45;sm">-->
+        <!--<header class="card-header card-header&#45;&#45;sm">-->
+          <!--<h3 class="h4"><i class="product-c product-icon product-icon&#45;&#45;sm"></i>iPaas</h3>-->
+          <!--<time datetime="2007-08-14">08 | 14 | 2017</time>-->
+        <!--</header>-->
+        <!--<h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>-->
+        <!--<a href="" class="btn btn-primary">Add to calendar</a>-->
+      <!--</div>-->
+      <!--<div class="card card&#45;&#45;sm">-->
+        <!--<header class="card-header card-header&#45;&#45;sm">-->
+          <!--<h3 class="h4"><i class="product-b product-icon product-icon&#45;&#45;sm"></i>Satellite</h3>-->
+          <!--<time datetime="2007-08-14">08 | 14 | 2017</time>-->
+        <!--</header>-->
+        <!--<h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>-->
+        <!--<a href="" class="btn btn-primary">Add to calendar</a>-->
+      <!--</div>-->
+      <!--<div class="card card&#45;&#45;sm">-->
+        <!--<header class="card-header card-header&#45;&#45;sm">-->
+          <!--<h3 class="h4"><i class="product-a product-icon product-icon&#45;&#45;sm"></i>Openshift.io</h3>-->
+          <!--<time datetime="2007-08-14">08 | 14 | 2017</time>-->
+        <!--</header>-->
+        <!--<h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>-->
+        <!--<a href="" class="btn btn-primary">Add to calendar</a>-->
+      <!--</div>-->
     </div><!--cards-->
   </section>
 
