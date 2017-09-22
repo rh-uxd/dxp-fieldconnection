@@ -69,35 +69,12 @@
           </tr>
         </thead>
         <tbody>
-      		<tr>
-      			<td><i class="product-c product-icon product-icon--sm"></i>Vertical Navigation</td>
-      			<td data-label="Notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      			<td data-label="Status" class="status status-inprogress">in design</td>
-      			<td data-label="Action" class="status">design tbd</td>
-      		</tr>
-      		<tr>
-            <td ><i class="product-a product-icon product-icon--sm"></i>VMs vs Host Icon redesign</td>
-      			<td data-label="Notes"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      			<td data-label="Status" class="status status-inprogress">design complete</td>
-      			<td data-label="Action"><a href="">view design</a></td>
-      		</tr>
-      		<tr>
-            <td ><i class="product-b product-icon product-icon--sm"></i>feature 3</td>
-      			<td data-label="Notes"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      			<td data-label="Status" class="status status-inprogress">in development</td>
-      			<td data-label="Action"><a href="">view design</a></td>
-      		</tr>
-      		<tr>
-            <td ><i class="product-c product-icon product-icon--sm"></i>feature 4</td>
-      			<td data-label="Notes"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      			<td data-label="Status" class="status status-released">released in 6.3</td>
-      			<td data-label="Action"><a href="">view design</a></td>
-      		</tr>
-      		<tr>
-            <td data-label="Product" ><i class="product-c product-icon product-icon--sm"></i>feature 5</td>
-      			<td data-label="Notes"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      			<td data-label="Status" class="status status-blocked">blocked by dev</td>
-      			<td data-label="Action"><a href="">view design</a></td>
+      		<tr *ngFor="let feature of features">
+      			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i>{{feature.product}}</td>
+      			<td data-label="Notes">{{feature.notes}}</td>
+      			<td data-label="Status" class="status status-{{feature.statusIcon}}">{{feature.status}}</td>
+            <td data-label="Action" class="status" *ngIf="feature.actionLink"><a href="{{feature.actionLink}}" target="_blank">{{feature.action}}</a></td>
+            <td data-label="Action" class="status" *ngIf="!feature.actionLink">{{feature.action}}</td>
       		</tr>
       	</tbody>
     </table>
@@ -113,49 +90,16 @@
       <small class="page-count"><strong>page 1</strong> of 4</small>
     </header>
     <div class="cards cards--sm">
-      <div class="card card--sm">
+      <div class="card card--sm" *ngFor="let survey of surveys">
         <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-a product-icon product-icon--sm"></i>Openshift.io</h3>
+          <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(survey.productId)}}</h3>
           <div class="card-header-meta">
             <small>expires on</small>
-            <time datetime="2007-08-14">08 | 14 | 2017</time>
+            <time datetime="2007-08-14">{{survey.expirationDate | date: "MM | dd | yyyy" }}</time>
           </div>
         </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">take survey</a>
-      </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-b product-icon product-icon--sm"></i>Satellite</h3>
-          <div class="card-header-meta">
-            <small>expires on</small>
-            <time datetime="2007-08-14">08 | 14 | 2017</time>
-          </div>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">take survey</a>
-      </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-c product-icon product-icon--sm"></i>iPaas</h3>
-          <div class="card-header-meta">
-            <small>expires on</small>
-            <time datetime="2007-08-14">08 | 14 | 2017</time>
-          </div>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">take survey</a>
-      </div>
-      <div class="card card--sm">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="product-a product-icon product-icon--sm"></i>Openshift.io</h3>
-          <div class="card-header-meta">
-            <small>expires on</small>
-            <time datetime="2007-08-14">08 | 14 | 2017</time>
-          </div>
-        </header>
-        <h4 class="h4">Vertical Navigation vs. Horizontal Navigation</h4>
-        <a href="" class="btn btn-primary">take survey</a>
+        <h4 class="h4">{{survey.title}}</h4>
+        <a href="{{survey.surveyLink}}" class="btn btn-primary" target="_blank">take survey</a>
       </div>
     </div><!--cards-->
   </section>
