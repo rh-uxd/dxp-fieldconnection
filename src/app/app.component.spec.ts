@@ -6,6 +6,7 @@ import { SurveyService } from './services/survey.service';
 import { BaseRequestOptions, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { FeedbackService } from './services/feedback.service';
+import { ResultsService } from './services/results.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -17,6 +18,7 @@ describe('AppComponent', () => {
         ProductService,
         SurveyService,
         FeedbackService,
+        ResultsService,
         MockBackend,
         BaseRequestOptions,
         {
