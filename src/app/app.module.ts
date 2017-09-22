@@ -6,6 +6,7 @@ import { FeatureService } from './services/feature.service';
 import { HttpModule } from '@angular/http';
 import { SurveyService } from './services/survey.service';
 import { ProductService } from './services/product.service';
+import { FeedbackService } from './services/feedback.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ProductService } from './services/product.service';
     BrowserModule,
     HttpModule
   ],
-  providers: [FeatureService, SurveyService, ProductService],
+  providers: [FeatureService, SurveyService, ProductService, FeedbackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
