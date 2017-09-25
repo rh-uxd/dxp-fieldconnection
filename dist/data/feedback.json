@@ -1,0 +1,25 @@
+{
+  "feedback": [
+    {
+      "productId": "openshiftio",
+      "productIconClass": "product-a",
+      "expirationDate": "2017/08/14",
+      "title": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "satellite",
+      "productIconClass": "product-c",
+      "expirationDate": "2017/09/14",
+      "title": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "ipaas",
+      "productIconClass": "product-b",
+      "expirationDate": "2017/10/14",
+      "title": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "openshiftio",
+      "productIconClass": "product-a",
+      "expirationDate": "2017/08/14",
+      "title": "Vertical Navigation vs. Horizontal Navigation"
+    }
+  ]
+}
