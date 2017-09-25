@@ -12,6 +12,9 @@
     }, {
       "id": "satellite",
       "name": "Satellite"
+    }, {
+      "id": "bpm",
+      "name": "BPM"
     }
   ]
 }

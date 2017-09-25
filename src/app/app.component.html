@@ -84,23 +84,23 @@
     <header class="page-section--header" id="carousel0">
       <h1  class="h2">current open surveys</h1>
       <div class="pagination pagination-surveys">
-        <!-- <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
-        <a class="pagination-link pagination-link--next" href="">next</a> -->
       </div>
-      <small class="page-count"><strong>page 1</strong> of 4</small>
+      <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveyModal.slides.length}} </small>
     </header>
     <div class="cards cards--sm cards--surveys">
-      <div class="card card--sm" *ngFor="let survey of surveys">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(survey.productId)}}</h3>
-          <div class="card-header-meta">
-            <small>expires on</small>
-            <time>{{survey.expirationDate | date: "MM | dd | yyyy" }}</time>
-          </div>
-        </header>
-        <h4 class="h4">{{survey.title}}</h4>
-        <a [href]="survey.surveyLink" class="btn btn-primary" target="_blank">take survey</a>
-      </div>
+      <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)">
+        <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys">
+          <header class="card-header card-header--sm">
+            <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(survey.productId)}}</h3>
+            <div class="card-header-meta">
+              <small>expires on</small>
+              <time>{{survey.expirationDate | date: "MM | dd | yyyy" }}</time>
+            </div>
+          </header>
+          <h4 class="h4">{{survey.title}}</h4>
+          <a [href]="survey.surveyLink" class="btn btn-primary" target="_blank">take survey</a>
+        </div>
+      </ngx-slick>
     </div><!--cards-->
   </section>
 
@@ -108,23 +108,25 @@
     <header class="page-section--header" id="carousel1">
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
       <div class="pagination pagination-sessions">
-        <!-- <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
-        <a class="pagination-link pagination-link--next" href="">next</a> -->
       </div>
-      <small class="page-count slider-paging-number"><strong>page 1</strong> of 4</small>
+      <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{sessionModal.slides.length}} </small>
     </header>
+
+
     <div class="cards cards--sm cards--sessions">
-      <div class="card card--sm" *ngFor="let feedback of feedbacks">
-        <header class="card-header card-header--sm">
-          <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
-          <div class="card-header-meta">
-            <small>expires on</small>
-            <time>{{feedback.expirationDate | date: "MM | dd | yyyy" }}</time>
-          </div>
-        </header>
-        <h4 class="h4">{{feedback.title}}</h4>
-        <a href="#" class="btn btn-primary" target="_blank">add to calendar</a>
-      </div>
+      <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
+        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacks">
+          <header class="card-header card-header--sm">
+            <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
+            <div class="card-header-meta">
+              <small>expires on</small>
+              <time>{{feedback.expirationDate | date: "MM | dd | yyyy" }}</time>
+            </div>
+          </header>
+          <h4 class="h4">{{feedback.title}}</h4>
+          <a href="#" class="btn btn-primary" target="_blank">add to calendar</a>
+        </div>
+      </ngx-slick>
     </div><!--cards-->
   </section>
 
