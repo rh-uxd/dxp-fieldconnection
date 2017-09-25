@@ -63,9 +63,9 @@
 	}
 
 	& +.page-section { // this is for proper spacing for the sections.
-		padding-top: 2rem;
+		padding: 2rem 0;
 		@include media($desktop) {
-			padding-top: 4rem;
+			padding: 4rem 0;
 		}
 	}
 }//masthead

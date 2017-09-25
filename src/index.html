@@ -2,7 +2,7 @@
 <html class="wf-loading" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DxpFieldconnect</title>
+  <title>Dxp Field Connect</title>
   <base href="/">
   <script src="https://use.typekit.net/diw8pts.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -19,19 +19,62 @@
 <body class="fadein">
   <app-root></app-root>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
   <script>
-  $('#filter-toggle, .toggle').click( function() {
-    $(".filter").toggleClass("filter-expanded");
-    $("html, body").animate({ scrollTop: 0 }, 600);
-    return false;
-  } );
-  jQuery( document ).ready( function( $ ) {
-  	var body = document.body,
-          doc = document.documentElement;
-      $(window).scroll(function () {
-          body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
-      });
+  $( document ).ready(function() {
+    $('#filter-toggle, .toggle').click( function() {
+      $(".filter").toggleClass("filter-expanded");
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+    } );
+    jQuery( document ).ready( function( $ ) {
+    	var body = document.body,
+            doc = document.documentElement;
+        $(window).scroll(function () {
+            body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
+        });
+    });
+    $('.cards--sm').each(function (idx, item) {
+    var carouselId = "carousel" + idx;
+    this.id = carouselId;
+    $(this).slick({
+        slide: "#" + carouselId +" .card",
+        appendArrows: "#" + carouselId + " .pagination",
+        prevArrow: '<button class="slick-prev">Previous</button>',
+        nextArrow: '<button class="slick-next">Next</button>',
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+    });
   });
+});
+
   </script>
 </body>
 </html>

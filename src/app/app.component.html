@@ -81,15 +81,15 @@
   </section>
 
   <section class="page-section page-section--surveys">
-    <header class="page-section--header">
+    <header class="page-section--header" id="carousel0">
       <h1  class="h2">current open surveys</h1>
-      <div class="pagination">
-        <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
-        <a class="pagination-link pagination-link--next" href="">next</a>
+      <div class="pagination pagination-surveys">
+        <!-- <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
+        <a class="pagination-link pagination-link--next" href="">next</a> -->
       </div>
       <small class="page-count"><strong>page 1</strong> of 4</small>
     </header>
-    <div class="cards cards--sm">
+    <div class="cards cards--sm cards--surveys">
       <div class="card card--sm" *ngFor="let survey of surveys">
         <header class="card-header card-header--sm">
           <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(survey.productId)}}</h3>
@@ -105,15 +105,15 @@
   </section>
 
   <section class="page-section page-section--feedback">
-    <header class="page-section--header">
+    <header class="page-section--header" id="carousel1">
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
-      <div class="pagination">
-        <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
-        <a class="pagination-link pagination-link--next" href="">next</a>
+      <div class="pagination pagination-sessions">
+        <!-- <a class="pagination-link pagination-link--prev disabled" href="">previous</a>
+        <a class="pagination-link pagination-link--next" href="">next</a> -->
       </div>
-      <small class="page-count"><strong>page 1</strong> of 4</small>
+      <small class="page-count slider-paging-number"><strong>page 1</strong> of 4</small>
     </header>
-    <div class="cards cards--sm">
+    <div class="cards cards--sm cards--sessions">
       <div class="card card--sm" *ngFor="let feedback of feedbacks">
         <header class="card-header card-header--sm">
           <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
