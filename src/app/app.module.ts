@@ -8,6 +8,7 @@ import { SurveyService } from './services/survey.service';
 import { ProductService } from './services/product.service';
 import { FeedbackService } from './services/feedback.service';
 import { ResultsService } from './services/results.service';
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { ResultsService } from './services/results.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    // Specify your library as an import
+    SlickModule.forRoot()
   ],
   providers: [FeatureService, SurveyService, ProductService, FeedbackService, ResultsService],
   bootstrap: [AppComponent]
