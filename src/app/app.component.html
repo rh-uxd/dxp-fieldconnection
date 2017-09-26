@@ -124,7 +124,7 @@
             </div>
           </header>
           <h4 class="h4">{{feedback.title}}</h4>
-          <a href="#" class="btn btn-primary" target="_blank">add to calendar</a>
+          <a [href]="generateEventLink(feedback)" target="_blank" rel="nofollow" class="btn btn-primary">add to calendar</a>
         </div>
       </ngx-slick>
     </div><!--cards-->

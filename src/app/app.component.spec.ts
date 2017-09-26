@@ -7,11 +7,16 @@ import { BaseRequestOptions, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { FeedbackService } from './services/feedback.service';
 import { ResultsService } from './services/results.service';
+import { DatePipe } from '@angular/common';
+import { SlickModule } from 'ngx-slick';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
+      ],
+      imports: [
+        SlickModule.forRoot()
       ],
       providers: [
         FeatureService,
@@ -19,6 +24,7 @@ describe('AppComponent', () => {
         SurveyService,
         FeedbackService,
         ResultsService,
+        DatePipe,
         MockBackend,
         BaseRequestOptions,
         {

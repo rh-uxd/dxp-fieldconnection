@@ -14,6 +14,7 @@ import { FeedbackModel } from './models/feedback.model';
 import { ResultsService } from './services/results.service';
 import { ResultsModel } from './models/results.model';
 import { SlickComponent } from 'ngx-slick';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +45,8 @@ export class AppComponent implements OnInit, OnDestroy {
                private surveyService: SurveyService,
                private feedbackService: FeedbackService,
                private productService: ProductService,
-               private resultsService: ResultsService) {
+               private resultsService: ResultsService,
+               private datePipe: DatePipe) {
   }
 
   ngOnInit() {
@@ -166,6 +168,13 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.results.length > 0) {
       this.resultsDisplay = this.resultsDisplay.concat(this.results.splice(0, 4));
     }
+  }
+
+  generateEventLink(event: FeedbackModel): string {
+    const date = this.datePipe.transform(event.expirationDate, 'yMMdd/yMMd');
+    const title = 'DXP Feedback Session: ' + this.getProductName(event.productId);
+    // tslint:disable-next-line
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${date}&details=${event.title}&sf=true&output=xml`;
   }
 
   calculateSurveyPaging(currentSlideNumber: number): string {
