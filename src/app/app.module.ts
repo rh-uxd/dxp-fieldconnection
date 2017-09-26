@@ -9,6 +9,7 @@ import { ProductService } from './services/product.service';
 import { FeedbackService } from './services/feedback.service';
 import { ResultsService } from './services/results.service';
 import { SlickModule } from 'ngx-slick';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { SlickModule } from 'ngx-slick';
     // Specify your library as an import
     SlickModule.forRoot()
   ],
-  providers: [FeatureService, SurveyService, ProductService, FeedbackService, ResultsService],
+  providers: [FeatureService, SurveyService, ProductService, FeedbackService, ResultsService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
