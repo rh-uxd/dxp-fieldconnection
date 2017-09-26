@@ -107,11 +107,11 @@
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
             <div class="card-header-meta">
-              <small>expires on</small>
-              <time>{{feedback.expirationDate | date: "MM | dd | yyyy" }}</time>
+              <small>starts</small>
+              <time>{{feedback.startDate | date: "MM | dd | yyyy - h:mm Z" }}</time>
             </div>
           </header>
-          <h4 class="h4">{{feedback.title}}</h4>
+          <h4 class="h4">{{feedback.description}}</h4>
           <a [href]="generateEventLink(feedback)" target="_blank" rel="nofollow" class="btn btn-primary">add to calendar</a>
         </div>
       </ngx-slick>
