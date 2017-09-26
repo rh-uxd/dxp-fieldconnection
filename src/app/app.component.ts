@@ -177,10 +177,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   generateEventLink(event: FeedbackModel): string {
-    const date = this.datePipe.transform(event.expirationDate, 'yMMdd/yMMd');
+    const startDate = this.datePipe.transform(event.startDate, 'yMMddThhmmss');
+    const endDate = this.datePipe.transform(event.endDate, 'yMMddThhmmss');
     const title = 'DXP Feedback Session: ' + this.getProductName(event.productId);
     // tslint:disable-next-line
-    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${date}&details=${event.title}&sf=true&output=xml`;
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${event.description}&sf=true&output=xml`;
   }
 
   calculateSurveyPaging(currentSlideNumber: number): string {
