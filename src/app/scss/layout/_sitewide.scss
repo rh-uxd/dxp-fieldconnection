@@ -6,12 +6,13 @@ body {
 
 .page-section  {
 	background: $blue-100;
-	&:last-of-type{ //this is to fix issue with overflow on slick slider, internal padding needed for card wrappers.
-		padding-bottom: 2rem;
-		@include media($desktop) {
-			padding-bottom: 4rem;
-		}
-	}
+	padding-top: 4rem;
+	// &:last-of-type{ //this is to fix issue with overflow on slick slider, internal padding needed for card wrappers.
+	// 	padding-bottom: 2rem;
+	// 	@include media($desktop) {
+	// 		padding-bottom: 4rem;
+	// 	}
+	// }
 	&--header {
 		margin-bottom: 2rem;
 		@include media($desktop) {
@@ -206,9 +207,17 @@ body {
 		padding: 0 1rem;
 	}
 	@include media($desktop) {
-		display:grid;
-		grid-gap: 2rem;
-		grid-template-columns: 1fr 1fr;
+		@supports (display:grid){
+			display:grid;
+			grid-gap: 2rem;
+			grid-template-columns: 1fr 1fr;
+		}
+		@supports not (display:grid){
+			display:flex;
+			.card{
+				width:50%;
+			}
+		}
 		width:100%;
 
 	}
@@ -218,6 +227,7 @@ body {
 //individual card styles
 .card {
 	background: $white;
+	outline:none;
 	border-radius: .5rem;
 	box-shadow: 0px 4px 6px rgba($grey-500, .02),
 							 0px 8px 13px rgba($grey-500,.02),

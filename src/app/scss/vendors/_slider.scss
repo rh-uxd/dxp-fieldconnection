@@ -21,8 +21,10 @@
     margin: 0;
 
     padding:0 0 2rem;
+    margin-bottom:-4rem; //this is a bit hacky but it's for the smooth scroll feature
 		@include media($desktop) {
 			padding:0 0 4rem;
+      margin-bottom: -4rem;
 		}
 
     &:focus {
