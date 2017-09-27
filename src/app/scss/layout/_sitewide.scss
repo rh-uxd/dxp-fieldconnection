@@ -1,4 +1,5 @@
 body {
+	position: relative;
 	@include media($desktop) {
 		background:url('assets/masthead-bg-full.svg') repeat-y;
 	}
@@ -7,12 +8,7 @@ body {
 .page-section  {
 	background: $blue-100;
 	padding-top: 4rem;
-	// &:last-of-type{ //this is to fix issue with overflow on slick slider, internal padding needed for card wrappers.
-	// 	padding-bottom: 2rem;
-	// 	@include media($desktop) {
-	// 		padding-bottom: 4rem;
-	// 	}
-	// }
+
 	&--header {
 		margin-bottom: 2rem;
 		@include media($desktop) {
@@ -65,6 +61,7 @@ body {
 							 0px 8px 13px rgba($grey-500,.02),
 							 0px 18px 23px rgba($grey-500,.02);
 
+
 	thead {
 		text-align:left;
 		background:$grey-100;
@@ -95,6 +92,8 @@ body {
 		&:first-of-type {
 			font-family: $body-bold;
 			color:$grey-400;
+			position: relative;
+			padding-left: 3rem;
 		}
 		@include media($mobile-up) {
 			&:nth-last-of-type(-n+2) {
@@ -105,6 +104,12 @@ body {
 			}
 		}
 	}//td
+	.product-icon{
+		position: absolute;
+		left:1rem;
+		top:50%;
+		transform:translateY(-50%);
+	}
 	a {
 		color:$blue-300;
 		text-decoration: none;
@@ -189,39 +194,26 @@ body {
 
 //---------------------- card-wrapper styles
 
-
-.cards--sm {
-
-	// @include media($mobile-up) {
-	// 	grid-template-columns: 1fr 1fr;
-	// }
-	//
-	// @include media($tablet) {
-	// 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	// }
-
-}
 .cards--lg {
-	padding: 0 5%;
+	padding: 0 1rem;
+	width:100%;
 	@include media($mobile-up) {
 		padding: 0 1rem;
 	}
-	@include media($desktop) {
-		@supports (display:grid){
-			display:grid;
+	@supports (display:grid){
+		display:grid;
+		grid-row-gap: 2rem;
+		@include media($desktop){
 			grid-gap: 2rem;
 			grid-template-columns: 1fr 1fr;
 		}
-		@supports not (display:grid){
-			display:flex;
-			.card{
-				width:50%;
-			}
-		}
-		width:100%;
-
 	}
-
+	@supports not (display:grid){
+		display:flex;
+		.card{
+			width:50%;
+		}
+	}
 }
 
 //individual card styles
@@ -234,7 +226,7 @@ body {
 							 0px 18px 23px rgba($grey-500,.02);
 	display: flex;
 	align-items: stretch;
-	flex-direction: column;
+	// flex-direction: column;
 	flex-wrap: wrap;
 	transition: all .25s linear;
 
@@ -243,6 +235,7 @@ body {
 		flex-wrap:wrap;
 		align-items: center;
 		justify-content: space-between;
+		flex:1 auto;
 		color:$purple-200;
 			.h3,.h4 {
 				font-family: $body-bold;
@@ -279,6 +272,10 @@ body {
 
 	&-content {
 		padding:5%;
+		@include media($mobile-up){
+			padding:2rem;
+		}
+		flex:1 auto;
 		.h3 {
 			font-family: $body-bold;
 			text-transform: uppercase;
@@ -382,6 +379,7 @@ body {
 	.btn {
 		margin: 3rem auto 0;
 		transition: all .35s linear;
+		align-self: flex-end;
 	}
 
 	&--sm {
@@ -397,6 +395,7 @@ body {
 		}
 		& > .h4 {
 			font-family: $body;
+			flex: 1 100%;
 		}
 	}//--sm just small cards
 

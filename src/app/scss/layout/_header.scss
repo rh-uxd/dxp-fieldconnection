@@ -4,6 +4,8 @@
 	align-items: center;
 	flex-wrap: wrap;
 	position: fixed;
+	top:0;
+	left:0;
 	z-index: 1000;
 	width: 100%;
 	background:rgba(255,255,255,0.7);
@@ -12,6 +14,7 @@
 	}
 	.logo {
 		transition:all .25s linear;
+		transform : translate3d(0, 0, 0);
 	}
 	&.scroll {
 		padding:.85rem;
