@@ -4,7 +4,6 @@ import { FeatureModel } from './models/feature.model';
 import { Subscription } from 'rxjs/Subscription';
 import { SurveyModel } from './models/survey.model';
 import { SurveyService } from './services/survey.service';
-import { ProductModel } from './models/product.model';
 import { ProductService } from './services/product.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -15,6 +14,7 @@ import { ResultsService } from './services/results.service';
 import { ResultsModel } from './models/results.model';
 import { SlickComponent } from 'ngx-slick';
 import { DatePipe } from '@angular/common';
+import { ProductGroupModel } from './models/productGroup.model';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public features: FeatureModel[];
   public surveys: SurveyModel[];
-  public products: ProductModel[];
+  public productGroups: ProductGroupModel[];
   public feedbacks: FeedbackModel[];
   public results: ResultsModel[];
   public resultsDisplay: ResultsModel[] = [];
@@ -62,8 +62,8 @@ export class AppComponent implements OnInit, OnDestroy {
       productObservable,
       feedbackObservable,
       resultsObservable])
-      .subscribe(([features, surveys, products, feedback, results]) => {
-        this.products = products;
+      .subscribe(([features, surveys, productGroups, feedback, results]) => {
+        this.productGroups = productGroups;
         this.features = features;
         this.surveys = surveys;
         this.feedbacks = feedback;
@@ -147,13 +147,19 @@ export class AppComponent implements OnInit, OnDestroy {
     this.featureSubscription.unsubscribe();
   }
 
-  getProductName(productId: string ): string {
-    if (this.products) {
-      const matching = this.products.find((product) => {
-        return product.id === productId;
+  getProductName(productId: string): string {
+    let productName = '';
+    if (this.productGroups) {
+      this.productGroups.forEach( (productGroup) => {
+        const matchingProduct = productGroup.products.find((product) => {
+          return product.id === productId;
+        });
+        if (matchingProduct) {
+          productName = matchingProduct.name;
+        }
       });
-      return matching.name;
     }
+    return productName;
   }
 
   afterSurveyChange(event: any): void {
@@ -171,10 +177,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   generateEventLink(event: FeedbackModel): string {
-    const date = this.datePipe.transform(event.expirationDate, 'yMMdd/yMMd');
+    const startDate = this.datePipe.transform(event.startDate, 'yMMddThhmmss');
+    const endDate = this.datePipe.transform(event.endDate, 'yMMddThhmmss');
     const title = 'DXP Feedback Session: ' + this.getProductName(event.productId);
     // tslint:disable-next-line
-    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${date}&details=${event.title}&sf=true&output=xml`;
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${event.description}&sf=true&output=xml`;
   }
 
   calculateSurveyPaging(currentSlideNumber: number): string {

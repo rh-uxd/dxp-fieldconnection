@@ -27,27 +27,15 @@
       </div>
       <div class="filter-options">
         <p>Filter entries on page by product group or individual product</p>
-        <div class="filter-group">
-            <div class="filter-group-item">
-              <input type="radio" class="radio-btn product-a" id="product-a">
-              <label for="product-a" class="label">Product group</label>
-            </div>
-            <div class="filter-group-item">
-              <input type="checkbox" class="check-box" id="product-a-1">
-              <label for="product-a-1">Product Name</label>
-            </div>
-            <div class="filter-group-item">
-              <input type="checkbox" class="check-box" id="product-a-2">
-              <label for="product-a-2">Product Name</label>
-            </div>
-            <div class="filter-group-item">
-              <input type="checkbox" class="check-box" id="product-a-3">
-              <label for="product-a-3">Product Name</label>
-            </div>
-            <div class="filter-group-item">
-              <input type="checkbox" class="check-box" id="product-a-4">
-              <label for="product-a-4">Product Name</label>
-            </div>
+        <div class="filter-group" *ngFor="let productGroup of productGroups">
+          <div class="filter-group-item" >
+            <input type="radio" class="radio-btn product-a" id="product-a">
+            <label for="product-a" class="label">{{productGroup.groupName}}</label>
+          </div>
+          <div class="filter-group-item" *ngFor="let product of productGroup.products">
+            <input type="checkbox" class="check-box" id="product-a-1">
+            <label for="product-a-1">{{product.name}}</label>
+          </div>
         </div>
 
       </div><!-- filter-expanded -->
@@ -119,11 +107,11 @@
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i>{{getProductName(feedback.productId)}}</h3>
             <div class="card-header-meta">
-              <small>expires on</small>
-              <time>{{feedback.expirationDate | date: "MM | dd | yyyy" }}</time>
+              <small>starts</small>
+              <time>{{feedback.startDate | date: "MM | dd | yyyy - h:mm Z" }}</time>
             </div>
           </header>
-          <h4 class="h4">{{feedback.title}}</h4>
+          <h4 class="h4">{{feedback.description}}</h4>
           <a [href]="generateEventLink(feedback)" target="_blank" rel="nofollow" class="btn btn-primary">add to calendar</a>
         </div>
       </ngx-slick>
