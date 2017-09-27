@@ -79,8 +79,8 @@ export class AppComponent implements OnInit, OnDestroy {
       dots: false,
       infinite: false,
       speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToShow: 4,
+      slidesToScroll: 4,
       responsive: [
         {
           breakpoint: 1024,
@@ -93,8 +93,8 @@ export class AppComponent implements OnInit, OnDestroy {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         },
         {
@@ -114,8 +114,8 @@ export class AppComponent implements OnInit, OnDestroy {
       dots: false,
       infinite: false,
       speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToShow: 4,
+      slidesToScroll: 4,
       responsive: [
         {
           breakpoint: 1024,
@@ -128,8 +128,8 @@ export class AppComponent implements OnInit, OnDestroy {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToShow: 2,
+            slidesToScroll: 2
           }
         },
         {
@@ -177,10 +177,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   generateEventLink(event: FeedbackModel): string {
-    const date = this.datePipe.transform(event.expirationDate, 'yMMdd/yMMd');
+    const startDate = this.datePipe.transform(event.startDate, 'yMMddThhmmss');
+    const endDate = this.datePipe.transform(event.endDate, 'yMMddThhmmss');
     const title = 'DXP Feedback Session: ' + this.getProductName(event.productId);
     // tslint:disable-next-line
-    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${date}&details=${event.title}&sf=true&output=xml`;
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${event.description}&sf=true&output=xml`;
   }
 
   calculateSurveyPaging(currentSlideNumber: number): string {
