@@ -3,14 +3,39 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	padding:1rem;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
 	background:rgba(255,255,255,0.7);
-	@include media($mobile-up) {
+	@include media($tablet) {
 		justify-content: space-between;
 	}
 	.logo {
-		max-width: 300px;
+		transition:all .25s linear;
 	}
+	&.scroll {
+		padding:.85rem;
+		.logo {
+			max-width: 200px;
+		}
+		.nav-main a:hover:after{
+			@include media($tablet) {
+				bottom:-1.2rem;
+			}
+		}
+	}
+	&:not(.scroll) {
+		padding:1rem;
+		.logo {
+			max-width: 300px;
+		}
+		.nav-main a:hover:after{
+			@include media($tablet) {
+				bottom:-2rem;
+			}
+		}
+	}
+
 }
 
 .nav-main {
@@ -52,10 +77,7 @@
 					&:hover {
 						&:after {
 							opacity: 1;
-								bottom:-1rem;
-							@include media($tablet) {
-								bottom:-2rem;
-							}
+							bottom: -1rem;
 						}
 					}
 			}//a

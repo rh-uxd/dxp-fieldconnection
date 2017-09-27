@@ -1,9 +1,9 @@
 .filter {
+	align-self: flex-end;
 	color:$white;
 	display:flex;
 	flex-wrap: wrap;
 	width: 100%;
-	transition: all 0.25s linear;
 }
 
 .filter-active {
@@ -148,7 +148,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1000;
+	z-index: 2000;
 	.btn {
 		&:before {
 			content:'close ';

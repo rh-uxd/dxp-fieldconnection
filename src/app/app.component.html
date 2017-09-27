@@ -1,14 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<header class="header-main">
+<img class="logo" src="assets/DxP_field-logo.svg" alt="Design Exchange Program Field data" />
+  <nav class="nav-main">
+    <a href="#status">requested feature status</a>
+    <a href="#surveys">open surveys</a>
+    <a href="#reviews">upcoming design reviews</a>
+    <a href="#results">feedback results</a>
+  </nav>
+</header>
   <section class="masthead">
-    <header class="header-main">
-    <img class="logo" src="assets/DxP_field-logo.svg" alt="Design Exchange Program Field data" />
-      <nav class="nav-main">
-        <a href="">requested feature status</a>
-        <a href="">open surveys</a>
-        <a href="">upcoming design reviews</a>
-        <a href="">feedback results</a>
-      </nav>
-    </header>
     <div class="masthead-titles">
       <h1>connecting with the field</h1>
       <svg xmlns="http://www.w3.org/2000/svg" width="400" height="62" viewBox="0 0 274.6 42.7"><style>.st022{fill:none;stroke:#ccc;stroke-width:1.5261;stroke-linecap:round;stroke-miterlimit:10}.st122{fill:url(#SVGID_1_)}.st222{fill:url(#SVGID_2_)}.st322{fill:url(#SVGID_3_)}.st422{fill:url(#SVGID_4_)}</style><g class="left-bubble"><path class="st022" d="M.8 22.1h77.7M51.1 6.8h27.4M55.7 38.8h22.8"/><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="99.948" y1=".765" x2="141.406" y2="36.504"><stop offset="0" stop-color="#68e0cf"/><stop offset="1" stop-color="#209cff"/></linearGradient><path class="st122 bubble" d="M125.7 0c-10.8 0-19.6 8.8-19.6 19.6 0 4.7 1.7 9.1 4.5 12.5l-2 5.5 4.7-2.8c3.4 2.8 7.7 4.4 12.4 4.4 10.8 0 19.6-8.8 19.6-19.6S136.5 0 125.7 0z"/></g><g class="right-bubble"><linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="172.213" y1="8.085" x2="126.467" y2="47.255"><stop offset="0" stop-color="#209cff"/><stop offset="1" stop-color="#68e0cf"/></linearGradient><path class="st222 bubble" d="M150.7 3.6c10.8 0 19.6 8.8 19.6 19.6 0 4.7-1.7 9.1-4.5 12.5l2 5.5-4.7-2.8c-3.4 2.8-7.7 4.4-12.4 4.4-10.8 0-19.6-8.8-19.6-19.6 0-10.9 8.7-19.6 19.6-19.6z"/><path class="st022" d="M273.8 22.1h-77.7M218.9 6.8h-22.8M225 38.8h-30.4"/></g></svg>
@@ -55,7 +55,7 @@
 
   </section>
 
-  <section class="page-section page-section--status">
+  <section id="status" class="page-section page-section--status">
     <header class="page-section--header">
       <h1 class="h2">requested feature status</h1>
     </header>
@@ -70,7 +70,7 @@
         </thead>
         <tbody>
       		<tr *ngFor="let feature of features">
-      			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i>{{feature.product}}</td>
+      			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i><span data-balloon="product group/name" data-balloon-pos="up">{{feature.product}}</span></td>
       			<td data-label="Notes">{{feature.notes}}</td>
       			<td data-label="Status" class="status status-{{feature.statusIcon}}">{{feature.status}}</td>
             <td data-label="Action" class="status" *ngIf="feature.actionLink"><a href="{{feature.actionLink}}" target="_blank">{{feature.action}}</a></td>
@@ -80,7 +80,7 @@
     </table>
   </section>
 
-  <section class="page-section page-section--surveys">
+  <section id="surveys" class="page-section page-section--surveys">
     <header class="page-section--header" id="carousel0">
       <h1  class="h2">current open surveys</h1>
       <div class="pagination pagination-surveys">
@@ -104,7 +104,7 @@
     </div><!--cards-->
   </section>
 
-  <section class="page-section page-section--feedback">
+  <section id="reviews" class="page-section page-section--feedback">
     <header class="page-section--header" id="carousel1">
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
       <div class="pagination pagination-sessions">
@@ -130,7 +130,7 @@
     </div><!--cards-->
   </section>
 
-  <section class="page-section page-section--results">
+  <section id="results" class="page-section page-section--results">
     <header class="page-section--header">
       <h1 class="h2">Past Survey Results, Design Session Recording/notes</h1>
     </header>
