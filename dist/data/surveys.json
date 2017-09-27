@@ -1,77 +1,41 @@
 {
   "surveys": [
     {
-      "productId": "openshiftio",
-      "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.redhat.com"
-    }, {
       "productId": "satellite",
-      "productIconClass": "product-c",
-      "expirationDate": "2017/09/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.satellite.com"
-    }, {
-      "productId": "ipaas",
       "productIconClass": "product-b",
-      "expirationDate": "2017/10/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.ipaas.com"
-    }, {
-      "productId": "openshiftio",
-      "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "openshiftio",
-      "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "satellite",
-      "productIconClass": "product-c",
-      "expirationDate": "2017/09/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.satellite.com"
-    }, {
-      "productId": "ipaas",
-      "productIconClass": "product-b",
-      "expirationDate": "2017/10/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.ipaas.com"
-    }, {
-      "productId": "openshiftio",
-      "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
+      "expirationDate": "2017/10/11",
       "title": "Vertical Navigation vs. Horizontal Navigation",
       "surveyLink": "http://www.redhat.com"
     }, {
       "productId": "bpm",
-      "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
+      "productIconClass": "product-c",
+      "expirationDate": "2017/10/20",
+      "title": "Information Architecture Card Sort",
       "surveyLink": "http://www.redhat.com"
+    }, {
+      "productId": "bpm",
+      "productIconClass": "product-c",
+      "expirationDate": "2017/10/30",
+      "title": "Top Tasks",
+      "surveyLink": "https://docs.google.com/a/redhat.com/forms/d/e/1FAIpQLSfEXL3xonu42EO_aY8r34ft7_fQ-dWU8eW1Z6vpBiFSM-8LHQ/closedform"
     }, {
       "productId": "satellite",
-      "productIconClass": "product-c",
-      "expirationDate": "2017/09/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.satellite.com"
-    }, {
-      "productId": "ipaas",
       "productIconClass": "product-b",
-      "expirationDate": "2017/10/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.ipaas.com"
+      "expirationDate": "2017/10/30",
+      "title": "Top Tasks",
+      "surveyLink": "https://docs.google.com/a/redhat.com/forms/d/e/1FAIpQLSfEXL3xonu42EO_aY8r34ft7_fQ-dWU8eW1Z6vpBiFSM-8LHQ/closedform"
     }, {
-      "productId": "openshiftio",
+      "productId": "satellite",
+      "productIconClass": "product-b",
+      "expirationDate": "2017/10/22",
+      "title": "Two Pane View",
+      "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSe6lLng2KblnclZTf3pkm0HlmWOSu70q-5TGzTf421Oc-ZcFQ/viewform"
+    }, {
+      "productId": "rhv",
       "productIconClass": "product-a",
-      "expirationDate": "2017/08/14",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.redhat.com"
+      "expirationDate": "2017/09/14",
+      "title": "Cluster Level Dashboard",
+      "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSe4YroVsaxHlTWLlt6WJAInfCiNVBhvJifYn6r3lvapDkOJoA/viewform"
     }
   ]
 }

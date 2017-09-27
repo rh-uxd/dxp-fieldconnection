@@ -1,14 +1,24 @@
 {
   "features": [
     {
-      "productId": "satellite",
-      "productIconClass": "product-b",
-      "product": "Vertical Navigation",
-      "notes": "The field would like to see vertical navigation rather than horizontal.",
-      "status": "Released In 6.3",
-      "statusIcon": "released",
+      "productId": "bpm",
+      "productIconClass": "product-c",
+      "product": "BPM - Information Architecture",
+      "notes": "The BPM IA needs an overhaul based on field feedback.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productId": "bpm",
+      "productIconClass": "product-c",
+      "product": "BPM - Add Column",
+      "notes": "Today, the add column wizard is tedious. It could probably be condensed to one form.",
+      "status": "Design Complete",
+      "statusIcon": "inprogress",
       "action": "VIEW DESIGN",
-      "actionLink": "https://groups.google.com/forum/#!topic/foreman-dev/lzLYcgD65TE"
+      "actionLink": "https://lh5.googleusercontent.com/ypZti2YPBfgQepSgOPU9eNzNzy_fT7PkpkjvUWKNKz7-mG-1-ek_TI438llWhanhX9OZ5LdrNw=w737"
     },
     {
       "productId": "satellite",
@@ -21,24 +31,14 @@
       "actionLink": "http://www.patternfly.org/styles/icons/"
     },
     {
-      "productId": "bpm",
-      "productIconClass": "product-a",
-      "product": "BPM - Add Column",
-      "notes": "Today, the add column wizard is tedious. It could probably be condensed to one form.",
-      "status": "Design Complete",
-      "statusIcon": "inprogress",
+      "productId": "satellite",
+      "productIconClass": "product-b",
+      "product": "Vertical Navigation",
+      "notes": "The field would like to see vertical navigation rather than horizontal.",
+      "status": "Released In 6.3",
+      "statusIcon": "released",
       "action": "VIEW DESIGN",
-      "actionLink": "https://lh5.googleusercontent.com/ypZti2YPBfgQepSgOPU9eNzNzy_fT7PkpkjvUWKNKz7-mG-1-ek_TI438llWhanhX9OZ5LdrNw=w737"
-    },
-    {
-      "productId": "bpm",
-      "productIconClass": "product-c",
-      "product": "BPM - Information Architecture",
-      "notes": "The BPM IA needs an overhaul based on field feedback.",
-      "status": "In Design",
-      "statusIcon": "inprogress",
-      "action": "DESIGN TBD",
-      "actionLink": ""
+      "actionLink": "https://groups.google.com/forum/#!topic/foreman-dev/lzLYcgD65TE"
     }
   ]
 }
