@@ -26,4 +26,4 @@ else
 fi
 
 echo "npm install complete.  Running ng build..."
-npm run build --prod
+npm run build --prod --extract-css=true
