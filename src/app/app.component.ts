@@ -160,6 +160,21 @@ export class AppComponent implements OnInit, OnDestroy {
     return productName;
   }
 
+  getProductGroup(productId: string): string {
+    let groupGroupName = '';
+    if (this.productGroups) {
+      this.productGroups.forEach( (productGroup) => {
+        const matchingProduct = productGroup.products.find((product) => {
+          return product.id === productId;
+        });
+        if (matchingProduct) {
+          groupGroupName = productGroup.groupName;
+        }
+      });
+    }
+    return groupGroupName;
+  }
+
   afterSurveyChange(event: any): void {
     this.surveySlide = event.currentSlide;
   }
