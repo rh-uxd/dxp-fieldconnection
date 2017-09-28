@@ -1,8 +1,7 @@
 .masthead {
 	display:flex;
-	align-content: stretch;
-	flex-direction: column;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
 	height:100vh;
 	overflow-x: hidden;
 	@include linear-gradient(42deg, rgba($teal,0.1) 0%, rgba($teal,0.1) 50%, rgba($blue-300,0.1) 100%);
@@ -38,9 +37,10 @@
 	}
 	.masthead-titles {
 		display:flex;
+		margin-top: auto;
 		align-items: center;
- justify-content: center;
- flex-direction: column;
+	  justify-content: center;
+ 		flex-direction: column;
 	}
 	svg {
 		.left-bubble  {
@@ -63,9 +63,9 @@
 	}
 
 	& +.page-section { // this is for proper spacing for the sections.
-		padding-top: 2rem;
+		padding: 2rem 0 0 0;
 		@include media($desktop) {
-			padding-top: 4rem;
+			padding: 4rem 0 0 0;
 		}
 	}
 }//masthead

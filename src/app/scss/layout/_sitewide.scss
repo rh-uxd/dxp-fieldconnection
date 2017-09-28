@@ -5,11 +5,14 @@ body {
 }
 
 .page-section  {
-	padding-bottom: 2rem;
 	background: $blue-100;
-	@include media($desktop) {
-		padding-bottom: 4rem;
-	}
+	padding-top: 4rem;
+	// &:last-of-type{ //this is to fix issue with overflow on slick slider, internal padding needed for card wrappers.
+	// 	padding-bottom: 2rem;
+	// 	@include media($desktop) {
+	// 		padding-bottom: 4rem;
+	// 	}
+	// }
 	&--header {
 		margin-bottom: 2rem;
 		@include media($desktop) {
@@ -186,30 +189,37 @@ body {
 
 //---------------------- card-wrapper styles
 
-.cards {
+
+.cards--sm {
+
+	// @include media($mobile-up) {
+	// 	grid-template-columns: 1fr 1fr;
+	// }
+	//
+	// @include media($tablet) {
+	// 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	// }
+
+}
+.cards--lg {
 	padding: 0 5%;
 	@include media($mobile-up) {
 		padding: 0 1rem;
 	}
-	display:grid;
-	width:100%;
-	grid-gap: 2rem;
-}
-
-.cards--sm {
-
-	@include media($mobile-up) {
-		grid-template-columns: 1fr 1fr;
-	}
-
-	@include media($tablet) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-	}
-
-}
-.cards--lg {
 	@include media($desktop) {
-		grid-template-columns: 1fr 1fr;
+		@supports (display:grid){
+			display:grid;
+			grid-gap: 2rem;
+			grid-template-columns: 1fr 1fr;
+		}
+		@supports not (display:grid){
+			display:flex;
+			.card{
+				width:50%;
+			}
+		}
+		width:100%;
+
 	}
 
 }
@@ -217,6 +227,7 @@ body {
 //individual card styles
 .card {
 	background: $white;
+	outline:none;
 	border-radius: .5rem;
 	box-shadow: 0px 4px 6px rgba($grey-500, .02),
 							 0px 8px 13px rgba($grey-500,.02),
@@ -375,6 +386,7 @@ body {
 
 	&--sm {
 		padding:1rem;
+		margin: 0 1rem;
 		.btn {
 			&:hover {
 						transform:translateY(1px);
@@ -403,40 +415,7 @@ body {
 	@include media($mobile-up) {
 		margin: 0 1rem;
 	}
-	 &-link {
-		 background:$purple-200;
-		 text-decoration: none;
-		 width:25px;
-		 height: 25px;
-		 display:flex;
-		 justify-content: center;
-		 align-items: center;
-		 border-radius: 50%;
-		 @include hide-txt;
-		 	&:first-child {
-				margin-right:.5rem;
-			}
-			&:before {
-				font-size:.8rem;
-				font-weight: bold;
-				color:$white;
-			}
-			&--prev:before {
-				content: '\276E';
-			}
-			&--next:before {
-				content: '\276F';
-			}
-			&:hover {
-				@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
-			}
-	 }
-}
 
-.disabled {
-	opacity: .3;
-	pointer-events: none;
-  cursor: default;
 }
 
 .lazy-load {

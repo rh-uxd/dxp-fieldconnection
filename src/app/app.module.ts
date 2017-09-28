@@ -6,6 +6,10 @@ import { FeatureService } from './services/feature.service';
 import { HttpModule } from '@angular/http';
 import { SurveyService } from './services/survey.service';
 import { ProductService } from './services/product.service';
+import { FeedbackService } from './services/feedback.service';
+import { ResultsService } from './services/results.service';
+import { SlickModule } from 'ngx-slick';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -13,9 +17,11 @@ import { ProductService } from './services/product.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    // Specify your library as an import
+    SlickModule.forRoot()
   ],
-  providers: [FeatureService, SurveyService, ProductService],
+  providers: [FeatureService, SurveyService, ProductService, FeedbackService, ResultsService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

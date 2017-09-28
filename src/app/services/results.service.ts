@@ -3,19 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
-import { ProductGroupModel } from '../models/productGroup.model';
+import { ResultsModel } from '../models/results.model';
 
 @Injectable()
-export class ProductService {
+export class ResultsService {
 
   constructor (private http: Http) {
   }
 
-  getProducts(): Observable<ProductGroupModel[]> {
+  getResults(): Observable<ResultsModel[]> {
     return this.http
-      .get('data/products.json')
+      .get('data/results.json')
       .map(response => {
-        return response.json().productGroups as ProductGroupModel[];
+        return response.json().results as ResultsModel[];
       });
   }
 }

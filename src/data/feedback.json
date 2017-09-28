@@ -1,0 +1,29 @@
+{
+  "feedback": [
+    {
+      "productId": "openshiftio",
+      "productIconClass": "product-a",
+      "startDate": "2017-09-26T08:00:00-05:00",
+      "endDate": "2017-09-26T09:00:00-05:00",
+      "description": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "satellite",
+      "productIconClass": "product-c",
+      "startDate": "2017-11-26T08:00:00-05:00",
+      "endDate": "2017-11-26T09:00:00-05:00",
+      "description": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "ipaas",
+      "productIconClass": "product-b",
+      "startDate": "2017-10-26T08:00:00-05:00",
+      "endDate": "2017-10-26T09:00:00-05:00",
+      "description": "Vertical Navigation vs. Horizontal Navigation"
+    }, {
+      "productId": "openshiftio",
+      "productIconClass": "product-a",
+      "startDate": "2017-09-28T08:00:00-05:00",
+      "endDate": "2017-09-28T10:00:00-05:00",
+      "description": "Vertical Navigation vs. Horizontal Navigation"
+    }
+  ]
+}
