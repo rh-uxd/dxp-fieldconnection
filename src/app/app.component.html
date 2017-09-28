@@ -58,7 +58,7 @@
         </thead>
         <tbody>
       		<tr *ngFor="let feature of features">
-      			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i><span data-balloon="product group/name" data-balloon-pos="right">{{feature.product}}</span></td>
+      			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feature.productId) + '/' + getProductName(feature.productId)" data-balloon-pos="right">{{feature.product}}</span></td>
       			<td data-label="Notes">{{feature.notes}}</td>
       			<td data-label="Status" class="status status-{{feature.statusIcon}}">{{feature.status}}</td>
             <td data-label="Action" class="status" *ngIf="feature.actionLink"><a href="{{feature.actionLink}}" target="_blank">{{feature.action}}</a></td>
@@ -79,7 +79,7 @@
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)">
         <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys">
           <header class="card-header card-header--sm">
-            <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i><span data-balloon="product group" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
+            <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
             <div class="card-header-meta">
               <small>expires on</small>
               <time>{{survey.expirationDate | date: "MM | dd | yy" }}</time>
@@ -105,7 +105,7 @@
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
         <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacks">
           <header class="card-header card-header--sm">
-            <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i><span data-balloon="product group" data-balloon-pos="right">{{getProductName(feedback.productId)}}</span></h3>
+            <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feedback.productId)" data-balloon-pos="right">{{getProductName(feedback.productId)}}</span></h3>
             <div class="card-header-meta">
               <small>{{feedback.startDate | date: "MM | dd | yy" }}</small>
               <time>{{feedback.startDate | date: "h:mm a Z" }}</time>
@@ -125,7 +125,7 @@
     <div class="cards cards--lg">
       <div class="card card--lg" *ngFor="let result of resultsDisplay">
         <header class="card-header card-header--lg">
-          <h3 class="h3"><i class="{{result.productIconClass}} product-icon product-icon--lg"></i><span data-balloon="product group" data-balloon-pos="right">{{getProductName(result.productId)}}</span></h3>
+          <h3 class="h3"><i class="{{result.productIconClass}} product-icon product-icon--lg"></i><span [attr.data-balloon]="getProductGroup(result.productId)" data-balloon-pos="right">{{getProductName(result.productId)}}</span></h3>
           <time >{{result.resultDate | date: "MM | dd | yy" }}</time>
         </header>
         <div class="card-content">
