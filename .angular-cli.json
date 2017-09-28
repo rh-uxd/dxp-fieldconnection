@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "data"
+        "data",
+        { "glob": "**/*", "input": "app/fonts", "output": "fonts" }
       ],
       "index": "index.html",
       "main": "main.ts",
