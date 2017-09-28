@@ -25,8 +25,9 @@ button[data-balloon] {
     border-radius: 4px;
     color: #fff;
     content: attr(data-balloon);
-    padding: .5em 1em;
-    position: absolute; 
+    line-height: 0;
+    padding: 20px;
+    position: absolute;
     white-space: nowrap;
     z-index: 10; }
   [data-balloon]:before {
