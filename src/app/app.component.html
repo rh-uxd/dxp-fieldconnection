@@ -19,9 +19,7 @@
         <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a>
         <h4>current filters:</h4>
         <ul>
-          <li class="product-a">openshift.io<span class="close">close</span></li>
-          <li class="product-b">satellite<span class="close">close</span></li>
-          <li class="product-c">iPass<span class="close">close</span></li>
+          <li class="product-a" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.name}}<span class="close" (click)="removeFilter(activeFilter)">close</span></li>
           <li class="toggle"><span class="action">add</span></li>
         </ul>
       </div>
@@ -29,12 +27,12 @@
         <p>Filter entries on page by product group or individual product</p>
         <div class="filter-group" *ngFor="let productGroup of productGroups">
           <div class="filter-group-item" >
-            <input type="radio" class="radio-btn product-a" id="product-a">
-            <label for="product-a" class="label">{{productGroup.groupName}}</label>
+            <input type="radio" class="radio-btn product-a" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
+            <label [attr.for]="productGroup.groupName" class="label">{{productGroup.groupName}}</label>
           </div>
           <div class="filter-group-item" *ngFor="let product of productGroup.products">
-            <input type="checkbox" class="check-box" id="product-a-1">
-            <label for="product-a-1">{{product.name}}</label>
+            <input type="checkbox" class="check-box" [attr.id]="product.id" [(ngModel)]="product.filter" (click)="triggerProductSelect(product)" >
+            <label [attr.for]="product.id">{{product.name}}</label>
           </div>
         </div>
 
@@ -57,7 +55,7 @@
           </tr>
         </thead>
         <tbody>
-      		<tr *ngFor="let feature of features">
+      		<tr *ngFor="let feature of features | productfilter: currentFilters">
       			<td><i class="{{feature.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feature.productId) + '/' + getProductName(feature.productId)" data-balloon-pos="right">{{feature.product}}</span></td>
       			<td data-label="Notes">{{feature.notes}}</td>
       			<td data-label="Status" class="status status-{{feature.statusIcon}}">{{feature.status}}</td>
@@ -77,7 +75,7 @@
     </header>
     <div class="cards cards--sm cards--surveys">
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys">
+        <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys | productfilter: currentFilters">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
             <div class="card-header-meta">
@@ -103,7 +101,7 @@
 
     <div class="cards cards--sm cards--sessions">
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacks">
+        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacks | productfilter: currentFilters">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feedback.productId)" data-balloon-pos="right">{{getProductName(feedback.productId)}}</span></h3>
             <div class="card-header-meta">
@@ -123,7 +121,7 @@
       <h1 class="h2">Past Survey Results, Design Session Recording/notes</h1>
     </header>
     <div class="cards cards--lg">
-      <div class="card card--lg" *ngFor="let result of resultsDisplay">
+      <div class="card card--lg" *ngFor="let result of resultsDisplay | productfilter: currentFilters">
         <header class="card-header card-header--lg">
           <h3 class="h3"><i class="{{result.productIconClass}} product-icon product-icon--lg"></i><span [attr.data-balloon]="getProductGroup(result.productId)" data-balloon-pos="right">{{getProductName(result.productId)}}</span></h3>
           <time >{{result.resultDate | date: "MM | dd | yy" }}</time>

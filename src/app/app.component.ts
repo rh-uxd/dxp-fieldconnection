@@ -8,6 +8,8 @@ import { ProductService } from './services/product.service';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMap';
 import { FeedbackService } from './services/feedback.service';
 import { FeedbackModel } from './models/feedback.model';
 import { ResultsService } from './services/results.service';
@@ -15,6 +17,7 @@ import { ResultsModel } from './models/results.model';
 import { SlickComponent } from 'ngx-slick';
 import { DatePipe } from '@angular/common';
 import { ProductGroupModel } from './models/productGroup.model';
+import { ProductModel } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public features: FeatureModel[];
   public surveys: SurveyModel[];
-  public productGroups: ProductGroupModel[];
+  public productGroups: ProductGroupModel[] = [];
   public feedbacks: FeedbackModel[];
   public results: ResultsModel[];
   public resultsDisplay: ResultsModel[] = [];
@@ -35,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public surveyConfig: any;
   public surveySlide = 0;
   public sessionSlide = 0;
+  public currentFilters: string[] = [];
 
   @ViewChild('surveyModal') surveyModal: SlickComponent;
   @ViewChild('sessionModal') sessionModal: SlickComponent;
@@ -218,5 +222,69 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     return comp.config.slidesToShow === 1 ? (start + 1).toString() : (start + 1) + ' - ' + total;
+  }
+
+  // Filter logic
+  triggerGroupSelect(productGroup: ProductGroupModel): void {
+    const deselectAll = this.allProductsInGroupSelected(productGroup);
+    productGroup.products.forEach((product) => {
+      if (deselectAll) {
+        product.filter = false;
+        this.remove(this.currentFilters, product.id);
+      } else {
+        product.filter = true;
+        if (this.currentFilters.indexOf(product.id) === -1 ) {
+          this.currentFilters.push(product.id);
+        }
+      }
+    });
+  }
+
+  triggerProductSelect(product: ProductModel): void {
+    if (product.filter) {
+      product.filter = false;
+      this.remove(this.currentFilters, product.id);
+    } else {
+      product.filter = true;
+      this.currentFilters.push(product.id);
+    }
+  }
+
+  allProductsInGroupSelected(productGroup: ProductGroupModel): boolean {
+    const matching = productGroup.products.find((product) => {
+      return !product.filter;
+    });
+    // if any aren't selected, return false
+    return !matching;
+  }
+
+  removeFilter(product: ProductModel): void {
+    product.filter = false;
+    this.remove(this.currentFilters, product.id);
+  }
+
+  getActiveFilters(): ProductModel[] {
+    const activeFilters: ProductModel[] = [];
+    this.productGroups.forEach( (productGroup) => {
+      productGroup.products.forEach((product) => {
+        if (product.filter && product.filter) {
+          activeFilters.push(product);
+        }
+      });
+    });
+    return activeFilters;
+  }
+
+  /**
+   * Remove element from array
+   * @param array
+   * @param element
+   */
+  private remove(array, element): void {
+    const index = array.indexOf(element);
+
+    if (index !== -1) {
+      array.splice(index, 1);
+    }
   }
 }
