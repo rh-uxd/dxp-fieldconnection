@@ -44,6 +44,8 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('sessionModal') sessionModal: SlickComponent;
 
   private featureSubscription: Subscription;
+  private currentBreakpoint: number;
+  private slidesToShow: number;
 
   constructor (private featureService: FeatureService,
                private surveyService: SurveyService,
@@ -143,6 +145,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       ]
     };
+    this.slidesToShow = this.surveyConfig.slidesToShow;
   }
 
   ngOnDestroy() {
@@ -179,14 +182,6 @@ export class AppComponent implements OnInit, OnDestroy {
     return groupGroupName;
   }
 
-  afterSurveyChange(event: any): void {
-    this.surveySlide = event.currentSlide;
-  }
-
-  afterSessionChange(event: any): void {
-    this.sessionSlide = event.currentSlide;
-  }
-
   loadMoreResults(): void {
     if (this.results.length > 0) {
       this.resultsDisplay = this.resultsDisplay.concat(this.results.splice(0, 4));
@@ -201,28 +196,54 @@ export class AppComponent implements OnInit, OnDestroy {
     return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${event.description}&sf=true&output=xml`;
   }
 
+  // Slick functions
+  afterSurveyChange(event: any): void {
+    this.surveySlide = event.currentSlide;
+  }
+
+  afterSessionChange(event: any): void {
+    this.sessionSlide = event.currentSlide;
+  }
+
   calculateSurveyPaging(currentSlideNumber: number): string {
     const comp = this.surveyModal;
-    return this.calculatePaging(currentSlideNumber, comp);
+    const totalSlides = comp.slides.length;
+    return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
   calculateSessionPaging(currentSlideNumber: number): string {
     const comp = this.sessionModal;
-    return this.calculatePaging(currentSlideNumber, comp);
+    const totalSlides = comp.slides.length;
+    return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
-  calculatePaging(currentSlideNumber: number, comp: SlickComponent): string {
-    const total = ((currentSlideNumber + comp.config.slidesToShow) > comp.slides.length) ?
-      comp.slides.length :
-      currentSlideNumber + comp.config.slidesToShow;
+  calculatePaging(currentSlideNumber: number, slidesToShow: number, totalSlides: number): string {
+    const total = ((currentSlideNumber + slidesToShow) > totalSlides) ?
+      totalSlides :
+      currentSlideNumber + slidesToShow;
 
     let start = currentSlideNumber;
-    if (total === currentSlideNumber + 1 && comp.config.slidesToShow !== 1) {
-      start = total - comp.config.slidesToShow;
+    if (total < currentSlideNumber + slidesToShow && (total - slidesToShow > 0)) {
+      start = total - slidesToShow;
     }
 
-    return comp.config.slidesToShow === 1 ? (start + 1).toString() : (start + 1) + ' - ' + total;
+    if (total === currentSlideNumber + 1 && slidesToShow !== 1) {
+      start = total - slidesToShow;
+    }
+
+    return slidesToShow === 1 ? (start + 1).toString() : (start + 1) + ' - ' + total;
   }
+
+  onBreakpointChange(event: any): void {
+    this.currentBreakpoint = event.breakpoint;
+    const slick = event.slick;
+    if (this.currentBreakpoint) {
+      this.slidesToShow = slick['breakpointSettings'][this.currentBreakpoint].slidesToShow;
+    } else {
+      this.slidesToShow = this.surveyConfig.slidesToShow;
+    }
+  }
+  // End slick functions
 
   // Filter logic
   triggerGroupSelect(productGroup: ProductGroupModel): void {
@@ -274,6 +295,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     return activeFilters;
   }
+  // End filter logic
 
   /**
    * Remove element from array

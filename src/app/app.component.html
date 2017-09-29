@@ -74,7 +74,7 @@
       <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveyModal.slides.length}} </small>
     </header>
     <div class="cards cards--sm cards--surveys">
-      <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)">
+      <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)" (breakpoint)="onBreakpointChange($event)">
         <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys | productfilter: currentFilters">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
