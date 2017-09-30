@@ -19,15 +19,15 @@
         <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a>
         <h4>current filters:</h4>
         <ul>
-          <li class="product-a" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.name}}<span class="close" (click)="removeFilter(activeFilter)">close</span></li>
+          <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)">close</span></li>
           <li class="toggle"><span class="action">add</span></li>
         </ul>
       </div>
       <div class="filter-options">
         <p>Filter entries on page by product group or individual product</p>
-        <div class="filter-group" *ngFor="let productGroup of productGroups">
+        <div class="filter-group" *ngFor="let productGroup of productGroups; let i = index">
           <div class="filter-group-item" >
-            <input type="radio" class="radio-btn product-a" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
+            <input type="radio" class="radio-btn productgroup-{{i}}" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
             <label [attr.for]="productGroup.groupName" class="label">{{productGroup.groupName}}</label>
           </div>
           <div class="filter-group-item" *ngFor="let product of productGroup.products">
@@ -71,11 +71,11 @@
       <h1  class="h2">current open surveys</h1>
       <div class="pagination pagination-surveys">
       </div>
-      <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveyModal.slides.length}} </small>
+      <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{getFilteredSurveys().length}} </small>
     </header>
     <div class="cards cards--sm cards--surveys">
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)" (breakpoint)="onBreakpointChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveys | productfilter: currentFilters">
+        <div ngxSlickItem class="card card--sm" *ngFor="let survey of getFilteredSurveys()">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{survey.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
             <div class="card-header-meta">
@@ -95,13 +95,13 @@
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
       <div class="pagination pagination-sessions">
       </div>
-      <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{sessionModal.slides.length}} </small>
+      <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{getFilteredSessions().length}} </small>
     </header>
 
 
     <div class="cards cards--sm cards--sessions">
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacks | productfilter: currentFilters">
+        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of getFilteredSessions()">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="{{feedback.productIconClass}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feedback.productId)" data-balloon-pos="right">{{getProductName(feedback.productId)}}</span></h3>
             <div class="card-header-meta">

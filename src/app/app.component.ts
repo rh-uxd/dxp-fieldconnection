@@ -188,6 +188,32 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  getFilteredSurveys(): SurveyModel[] {
+    if (this.currentFilters.length > 0 ) {
+      const filteredSurveys: SurveyModel[] = [];
+      this.surveys.forEach((survey) => {
+        if (this.currentFilters.indexOf(survey.productId) > -1) {
+          filteredSurveys.push(survey);
+        }
+      });
+      return filteredSurveys;
+    }
+    return this.surveys;
+  }
+
+  getFilteredSessions(): FeedbackModel[] {
+    if (this.currentFilters.length > 0 ) {
+      const filteredSessions: FeedbackModel[] = [];
+      this.feedbacks.forEach((feedback) => {
+        if (this.currentFilters.indexOf(feedback.productId) > -1) {
+          filteredSessions.push(feedback);
+        }
+      });
+      return filteredSessions;
+    }
+    return this.feedbacks;
+  }
+
   generateEventLink(event: FeedbackModel): string {
     const startDate = this.datePipe.transform(event.startDate, 'yMMddThhmmss');
     const endDate = this.datePipe.transform(event.endDate, 'yMMddThhmmss');
@@ -207,13 +233,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   calculateSurveyPaging(currentSlideNumber: number): string {
     const comp = this.surveyModal;
-    const totalSlides = comp.slides.length;
+    const totalSlides = this.getFilteredSurveys().length;
     return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
   calculateSessionPaging(currentSlideNumber: number): string {
     const comp = this.sessionModal;
-    const totalSlides = comp.slides.length;
+    const totalSlides = this.getFilteredSessions().length;
     return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
@@ -222,12 +248,13 @@ export class AppComponent implements OnInit, OnDestroy {
       totalSlides :
       currentSlideNumber + slidesToShow;
 
+    if (total === 0) {
+      return '0';
+    }
     let start = currentSlideNumber;
     if (total < currentSlideNumber + slidesToShow && (total - slidesToShow > 0)) {
       start = total - slidesToShow;
-    }
-
-    if (total === currentSlideNumber + 1 && slidesToShow !== 1) {
+    } else if (total === currentSlideNumber + 1 && slidesToShow !== 1) {
       start = total - slidesToShow;
     }
 
@@ -284,14 +311,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.remove(this.currentFilters, product.id);
   }
 
-  getActiveFilters(): ProductModel[] {
-    const activeFilters: ProductModel[] = [];
+  getActiveFilters(): any[] {
+    const activeFilters: any[] = [];
+    let i = 0;
     this.productGroups.forEach( (productGroup) => {
       productGroup.products.forEach((product) => {
         if (product.filter && product.filter) {
-          activeFilters.push(product);
+          activeFilters.push({'productGroupIndex': i, 'product': product});
         }
       });
+      i++;
     });
     return activeFilters;
   }
