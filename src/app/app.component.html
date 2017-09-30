@@ -31,7 +31,7 @@
             <label [attr.for]="productGroup.groupName" class="label">{{productGroup.groupName}}</label>
           </div>
           <div class="filter-group-item" *ngFor="let product of productGroup.products">
-            <input type="checkbox" class="check-box" [attr.id]="product.id" [(ngModel)]="product.filter" (click)="triggerProductSelect(product)" >
+            <input type="checkbox" class="check-box" [attr.id]="product.id" [ngModel]="product.filter" (click)="triggerProductSelect(product)" >
             <label [attr.for]="product.id">{{product.name}}</label>
           </div>
         </div>
