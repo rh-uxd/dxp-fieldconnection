@@ -27,9 +27,9 @@ import { ProductModel } from './models/product.model';
 export class AppComponent implements OnInit, OnDestroy {
 
   public features: FeatureModel[];
-  public surveys: SurveyModel[];
+  public surveys: SurveyModel[] = [];
   public productGroups: ProductGroupModel[] = [];
-  public feedbacks: FeedbackModel[];
+  public feedbacks: FeedbackModel[]= [];
   public results: ResultsModel[];
   public resultsDisplay: ResultsModel[] = [];
   public totalResults = 0;
@@ -290,10 +290,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   triggerProductSelect(product: ProductModel): void {
     if (product.filter) {
-      product.filter = false;
+      setTimeout(() => {
+        product.filter = false;
+      });
       this.remove(this.currentFilters, product.id);
     } else {
-      product.filter = true;
+      setTimeout(() => {
+        product.filter = true;
+      });
       this.currentFilters.push(product.id);
     }
   }
