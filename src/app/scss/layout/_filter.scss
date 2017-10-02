@@ -6,8 +6,9 @@
 	width: 100%;
 }
 
-.filter-active {
-	padding:1rem;
+.filter-bar {
+	padding: 0 1rem;
+	min-height: 75px;
 	flex: 1;
 	display: flex;
 	align-items: center;
@@ -29,11 +30,12 @@
 		display:none;
 		@include media($desktop) {
 			display:flex;
+			flex-wrap:wrap;
 		}
 		width: 100%;
 		list-style: none;
 		padding:0;
-		margin:0;
+		margin:1rem 0 0 0;
 			li {
 				font-size:1.3rem;
 				letter-spacing: 1px;
@@ -42,7 +44,7 @@
 				font-family: $display;
 				text-transform: uppercase;
 				letter-spacing: 1px;
-				margin-left:1rem;
+				margin:0 0 1rem 1rem;
 				display:flex;
 				align-items: center;
 
@@ -85,6 +87,7 @@
 					border-radius: 100%;
 					width:26px;
 					height: 26px;
+					align-self: center;
 					transition: all .25s linear;
 				}
 			}
@@ -131,7 +134,7 @@
 	}
 	.toggle {
 		border: 1px solid $white;
-		transform:translateY(4px);
+		transform:translateY(0px);
 		.action {
 			transform: translate(2px,0px);
 			&:before {
@@ -143,6 +146,7 @@
 		}
 	}
 }
+
 .filter-expanded {
 	height: 100vh;
 	position: fixed;
@@ -191,49 +195,91 @@
 			flex:1 1 auto;
 			display: flex;
 			flex-direction:column;
-				&-item {
-					margin-bottom:1rem;
-					position: relative;
+
+			.input-checkbox {
+			  border: 0;
+			  clip: rect(0 0 0 0);
+			  height: 1px; margin: -1px;
+			  overflow: hidden;
+			  padding: 0;
+			  position: absolute;
+			  width: 1px;
+			}
+			@keyframes draw-checkbox {
+			  0% {
+			    stroke-dashoffset: 33;
+			  }
+			  100% {
+			    stroke-dashoffset: 0;
+			  }
+			}
+			&-item {
+				margin-bottom: 1rem;
+				&:not(:first-of-type){
+					margin-left: 1rem;
 				}
-		}
-		label {
-			text-transform: uppercase;
-			cursor: pointer;
-			font-family: $body-bold;
-			font-size: 1rem;
-		}
-		input[type=checkbox] {
-			margin:0 1rem;
-		}
-		.radio-btn {
-			margin-right:1rem;
-			position: absolute;
-			visibility: hidden;
-			& + label {
-				font-family: $body-bold;
+				input:checked + label > svg {
+			    // Firefox doesn't render svg's that is loading with the use tag if its been set to display: none and then toggled to display: block, so you have to use tricks like this to get it to render again:
+			    height: 24px;
+			    animation: draw-checkbox ease-in-out 0.2s forwards;
+			  }
+				input.productgroup-0:checked + label{
+					color:$blue-300;
+					&:after{
+						border:2px solid transparent;
+						@include linear-gradient(-30deg, $teal 0%, $blue-200 100%);
+					}
+				}
+
+				input.productgroup-1:checked + label{
+					color:$orange;
+					&:after{
+						border:2px solid transparent;
+						@include linear-gradient(-30deg, $yellow 0%, $orange 100%);
+					}
+				}
+
+				input.productgroup-2:checked + label{
+					color:$green-100;
+					&:after{
+						border:2px solid transparent;
+						@include linear-gradient(-30deg, $green-100 0%, $green-200 100%);
+					}
+				}
+
+			  label:active::after {
+			    background-color: $grey-100;
+			  }
+
+			  label {
+			    color: $white;
+			    line-height: 0;
+			    cursor: pointer;
+					font-family: $body-bold;
+					text-transform: uppercase;
+			    position: relative;
+			    &:after {
+			      content: "";
+			      height: 20px;
+			      width: 20px;
+			      margin-right: 1rem;
+			      float: left;
+			      border: 2px solid $white;
+			      border-radius: 3px;
+			      transition: 0.15s all ease-out;
+			    }
+			  }
+			  svg {
+			    stroke: $white;
+			    stroke-width: 2px;
+			    height: 0; //Firefox fix
+			    width: 12px;
+			    position: absolute;
+			    left: -32px;
+			    top: -3px;
+			    stroke-dasharray: 33; //Firefox fix
+			  }
 			}
-			&:checked ~ .label  {
-				color: $blue-300;
-			}
-			&:checked ~ .label::before  {
-				border: 5px solid $blue-300;
-				background: $white;
-			}
-		}
-		.label  {
-			display: flex;
-			align-items: center;
-			cursor: pointer;
-			transition: all 0.25s linear;
-		}
-		.label::before  {
-			display: block;
-			content: '';
-			border: 3px solid $white;
-			border-radius: 50%;
-			height: 18px;
-			width: 18px;
-			margin-right: 10px;
-			transition: all .25s linear;
-		}
+
+}
 }

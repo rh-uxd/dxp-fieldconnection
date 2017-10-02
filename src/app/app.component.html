@@ -15,10 +15,16 @@
       <h2>feature status &amp; session notes</h2>
     </div>
     <div class="filter">
-      <div class="filter-active">
+      <div class="filter-bar">
         <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a>
         <h4>current filters:</h4>
         <ul>
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+            <symbol id="checkmark" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
+              </path>
+            </symbol>
+          </svg>
           <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)">close</span></li>
           <li class="toggle"><span class="action">add</span></li>
         </ul>
@@ -27,12 +33,12 @@
         <p>Filter entries on page by product group or individual product</p>
         <div class="filter-group" *ngFor="let productGroup of productGroups; let i = index">
           <div class="filter-group-item" >
-            <input type="radio" class="radio-btn productgroup-{{i}}" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
-            <label [attr.for]="productGroup.groupName" class="label">{{productGroup.groupName}}</label>
+            <input type="checkbox" class="input-checkbox productgroup-{{i}}" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
+            <label [attr.for]="productGroup.groupName"><svg><use xlink:href="#checkmark" /></svg>{{productGroup.groupName}}</label>
           </div>
           <div class="filter-group-item" *ngFor="let product of productGroup.products">
-            <input type="checkbox" class="check-box" [attr.id]="product.id" [ngModel]="product.filter" (click)="triggerProductSelect(product)" >
-            <label [attr.for]="product.id">{{product.name}}</label>
+            <input type="checkbox" class="input-checkbox" [attr.id]="product.id" [ngModel]="product.filter" (click)="triggerProductSelect(product)" >
+            <label [attr.for]="product.id"><svg><use xlink:href="#checkmark" /></svg>{{product.name}}</label>
           </div>
         </div>
 

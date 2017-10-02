@@ -1,16 +1,16 @@
 // -- these gradients are used to define each product group so they can be added easily. They are used in the filter buttons, filter titles, table icons and card title icons.
 
-.product-a {
+.productgroup-0 {
 	&:after {
 		@include linear-gradient(-30deg, $teal 0%, $blue-200 100%);
 	}
 }
-.product-b {
+.productgroup-1 {
 	&:after {
 		@include linear-gradient(-30deg, $yellow 0%, $orange 100%);
 	}
 }
-.product-c {
+.productgroup-2 {
 	&:after {
 		@include linear-gradient(-30deg, $green-100 0%, $green-200 100%);
 	}
