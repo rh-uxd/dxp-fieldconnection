@@ -3,7 +3,14 @@ body {
 	@include media($desktop) {
 		background:url('assets/masthead-bg-full.svg') repeat-y;
 	}
+
 }
+
+// app-root {
+// 	height: 100vh;
+//     overflow: auto;
+//     display: block;
+// }
 
 .page-section  {
 	background: $blue-100;
@@ -119,7 +126,7 @@ body {
 		text-decoration: none;
 		text-transform: uppercase;
 		font-family: $body-bold;
-		transition: color .25s linear;
+		// transition: color .25s linear;
 			&:hover {
 				color:$red;
 			}
