@@ -182,6 +182,23 @@ export class AppComponent implements OnInit, OnDestroy {
     return groupGroupName;
   }
 
+  getProductGroupIndex(productId: string): number {
+    let index = 0,
+      matchingIndex = 0;
+    if (this.productGroups) {
+      this.productGroups.forEach( (productGroup) => {
+        const matchingProduct = productGroup.products.find((product) => {
+          return product.id === productId;
+        });
+        if (matchingProduct) {
+          matchingIndex = index;
+        }
+        index++;
+      });
+    }
+    return matchingIndex;
+  }
+
   loadMoreResults(): void {
     if (this.results.length > 0) {
       this.resultsDisplay = this.resultsDisplay.concat(this.results.splice(0, 4));
