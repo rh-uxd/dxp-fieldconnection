@@ -61,6 +61,8 @@ export class AppComponent implements OnInit, OnDestroy {
     const productObservable = this.productService.getProducts();
     const feedbackObservable = this.feedbackService.getFeedback();
     const resultsObservable = this.resultsService.getResults();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
 
     this.featureSubscription = Observable.forkJoin([
       featureObservable,
@@ -68,11 +70,15 @@ export class AppComponent implements OnInit, OnDestroy {
       productObservable,
       feedbackObservable,
       resultsObservable])
-      .subscribe(([features, surveys, productGroups, feedback, results]) => {
+      .subscribe(([features, surveys, productGroups, feedbacks, results]) => {
         this.productGroups = productGroups;
         this.features = features;
-        this.surveys = surveys;
-        this.feedbacks = feedback;
+        this.surveys = surveys.filter((survey) => {
+          return new Date(survey.expirationDate) > yesterday;
+        });
+        this.feedbacks = feedbacks.filter((feedback) => {
+          return new Date(feedback.endDate) > yesterday;
+        });
         this.results = results;
         this.totalResults = results.length;
         this.resultsDisplay = this.results.splice(0, 4);
