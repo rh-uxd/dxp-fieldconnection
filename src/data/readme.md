@@ -13,7 +13,4 @@ StatusIcon options:
  - blocked
  - released
  
-ProductIconClass is used for the color indicator next to each product
- - Need more details (MattC)
- 
 Dates should be in the format: 2017/09/14
