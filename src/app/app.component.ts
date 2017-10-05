@@ -271,9 +271,10 @@ export class AppComponent implements OnInit, OnDestroy {
       totalSlides :
       currentSlideNumber + slidesToShow;
 
-    if (total === 0) {
-      return '0';
+    if (total === 0 || total === 1) {
+      return total.toString();
     }
+
     let start = currentSlideNumber;
     if (total < currentSlideNumber + slidesToShow && (total - slidesToShow > 0)) {
       start = total - slidesToShow;

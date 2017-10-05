@@ -9,14 +9,18 @@ import { FeedbackService } from './services/feedback.service';
 import { ResultsService } from './services/results.service';
 import { DatePipe } from '@angular/common';
 import { SlickModule } from 'ngx-slick';
+import { ProductPipe } from './product.filter';
+import { FormsModule } from '@angular/forms';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ProductPipe
       ],
       imports: [
-        SlickModule.forRoot()
+        SlickModule.forRoot(),
+        FormsModule
       ],
       providers: [
         FeatureService,
@@ -39,5 +43,24 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  }));
+
+  it('should calculate paging correctly', async( () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    let paging = app.calculatePaging(1, 4, 3);
+    expect(paging).toBe('2 - 3');
+
+    paging = app.calculatePaging(0, 4, 1);
+    expect(paging).toBe('1');
+
+    paging = app.calculatePaging(2, 4, 4);
+    expect(paging).toBe('3 - 4');
+
+    paging = app.calculatePaging(4, 4, 6);
+    expect(paging).toBe('3 - 6');
+
+    paging = app.calculatePaging(4, 2, 6);
+    expect(paging).toBe('5 - 6');
   }));
 });
