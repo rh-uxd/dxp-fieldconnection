@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public surveySlide = 0;
   public sessionSlide = 0;
   public currentFilters: string[] = [];
+  public formOpen: boolean = false;
 
   @ViewChild('surveyModal') surveyModal: SlickComponent;
   @ViewChild('sessionModal') sessionModal: SlickComponent;
@@ -82,6 +83,16 @@ export class AppComponent implements OnInit, OnDestroy {
         this.results = results;
         this.totalResults = results.length;
         this.resultsDisplay = this.results.splice(0, 4);
+
+        // apply any existing filters
+        if (localStorage.getItem('dxp-filter')) {
+          this.currentFilters = JSON.parse(localStorage.getItem('dxp-filter'));
+          this.productGroups.forEach((group) => {
+            group.products.forEach((product) => {
+              product.filter = (this.currentFilters.indexOf(product.id) !== -1 );
+            });
+          });
+        }
     });
 
     this.sessionConfig = {
@@ -297,6 +308,21 @@ export class AppComponent implements OnInit, OnDestroy {
   // End slick functions
 
   // Filter logic
+  openFilter(): void {
+    this.formOpen = true;
+  }
+
+  updateFilter(): void {
+    // save to local storage here
+    this.updateSavedFilter();
+    console.log('updating yo!');
+    this.formOpen = false;
+  }
+
+  updateSavedFilter(): void {
+    localStorage.setItem('dxp-filter', JSON.stringify(this.currentFilters));
+  }
+
   triggerGroupSelect(productGroup: ProductGroupModel): void {
     const deselectAll = this.allProductsInGroupSelected(productGroup);
     productGroup.products.forEach((product) => {
@@ -310,6 +336,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       }
     });
+    this.updateSavedFilter();
   }
 
   triggerProductSelect(product: ProductModel): void {
@@ -324,6 +351,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
       this.currentFilters.push(product.id);
     }
+    this.updateSavedFilter();
   }
 
   allProductsInGroupSelected(productGroup: ProductGroupModel): boolean {
@@ -337,6 +365,7 @@ export class AppComponent implements OnInit, OnDestroy {
   removeFilter(product: ProductModel): void {
     product.filter = false;
     this.remove(this.currentFilters, product.id);
+    this.updateSavedFilter();
   }
 
   getActiveFilters(): any[] {
