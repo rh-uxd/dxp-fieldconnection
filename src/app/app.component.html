@@ -64,7 +64,7 @@
           </tr>
         </thead>
         <tbody>
-      		<tr *ngFor="let feature of features | productfilter: currentFilters">
+      		<tr *ngFor="let feature of featuresDisplay">
       			<td><i class="productgroup-{{getProductGroupIndex(feature.productId)}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feature.productId) + '/' + getProductName(feature.productId)" data-balloon-pos="right">{{feature.product}}</span></td>
       			<td data-label="Notes">{{feature.notes}}</td>
       			<td data-label="Status" class="status status-{{feature.statusIcon}}">{{feature.status}}</td>
@@ -80,12 +80,12 @@
       <h1  class="h2">current open surveys</h1>
       <div class="pagination pagination-surveys">
       </div>
-      <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{getFilteredSurveys().length}} </small>
+      <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveysDisplay.length}} </small>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
     <div class="cards cards--sm cards--surveys">
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)" (breakpoint)="onBreakpointChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let survey of getFilteredSurveys()">
+        <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveysDisplay">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="productgroup-{{getProductGroupIndex(survey.productId)}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="right">{{getProductName(survey.productId)}}</span></h3>
             <div class="card-header-meta">
@@ -105,12 +105,12 @@
       <h1  class="h2">Upcoming Interactive Feedback Sessions</h1>
       <div class="pagination pagination-sessions">
       </div>
-      <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{getFilteredSessions().length}} </small>
+      <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{feedbacksDisplay.length}} </small>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
     <div class="cards cards--sm cards--sessions">
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
-        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of getFilteredSessions()">
+        <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacksDisplay">
           <header class="card-header card-header--sm">
             <h3 class="h4"><i class="productgroup-{{getProductGroupIndex(feedback.productId)}} product-icon product-icon--sm"></i><span [attr.data-balloon]="getProductGroup(feedback.productId)" data-balloon-pos="right">{{getProductName(feedback.productId)}}</span></h3>
             <div class="card-header-meta">
@@ -131,7 +131,7 @@
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
     <div class="cards cards--lg">
-      <div class="card card--lg" *ngFor="let result of resultsDisplay | productfilter: currentFilters">
+      <div class="card card--lg" *ngFor="let result of resultsDisplay">
         <header class="card-header card-header--lg">
           <h3 class="h3"><i class="productgroup-{{getProductGroupIndex(result.productId)}} product-icon product-icon--lg"></i><span [attr.data-balloon]="getProductGroup(result.productId)" data-balloon-pos="right">{{getProductName(result.productId)}}</span></h3>
           <time >{{result.resultDate | date: "MM | dd | yy" }}</time>

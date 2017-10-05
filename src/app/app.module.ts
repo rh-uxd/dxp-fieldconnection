@@ -11,12 +11,10 @@ import { ResultsService } from './services/results.service';
 import { SlickModule } from 'ngx-slick';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductPipe } from './product.filter';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductPipe
+    AppComponent
   ],
   imports: [
     BrowserModule,

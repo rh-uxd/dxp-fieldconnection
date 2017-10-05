@@ -8,8 +8,12 @@ import { ProductService } from './services/product.service';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/switch';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/concatAll';
+
 import { FeedbackService } from './services/feedback.service';
 import { FeedbackModel } from './models/feedback.model';
 import { ResultsService } from './services/results.service';
@@ -26,11 +30,11 @@ import { ProductModel } from './models/product.model';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  public features: FeatureModel[];
-  public surveys: SurveyModel[] = [];
+  public featuresDisplay: FeatureModel[];
+  public surveysDisplay: SurveyModel[] = [];
   public productGroups: ProductGroupModel[] = [];
-  public feedbacks: FeedbackModel[]= [];
-  public results: ResultsModel[];
+  public feedbacksDisplay: FeedbackModel[]= [];
+  public filteredResults: ResultsModel[] = [];
   public resultsDisplay: ResultsModel[] = [];
   public totalResults = 0;
 
@@ -47,6 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
   private featureSubscription: Subscription;
   private currentBreakpoint: number;
   private slidesToShow: number;
+  private filterObservable: Observable<string []>;
+  private emitter: any;
+  private surveys: SurveyModel[] = [];
+  private features: FeatureModel[] = [];
+  private feedbacks: FeedbackModel[]= [];
+  private results: ResultsModel[] = [];
 
   constructor (private featureService: FeatureService,
                private surveyService: SurveyService,
@@ -65,6 +75,36 @@ export class AppComponent implements OnInit, OnDestroy {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
+    if (localStorage.getItem('dxp-filter')) {
+      this.currentFilters = JSON.parse(localStorage.getItem('dxp-filter'));
+      this.productGroups.forEach((group) => {
+        group.products.forEach((product) => {
+          product.filter = (this.currentFilters.indexOf(product.id) !== -1 );
+        });
+      });
+    }
+
+    this.filterObservable = Observable.create(e => this.emitter = e);
+    this.filterObservable.subscribe((filters) => {
+      this.featuresDisplay = this.features.filter((feature) => {
+        return this.currentFilters.length === 0 || this.currentFilters.indexOf(feature.productId) !== -1;
+      });
+
+      this.surveysDisplay = this.surveys.filter((survey) => {
+        return this.currentFilters.length === 0 || this.currentFilters.indexOf(survey.productId) !== -1;
+      });
+
+      this.feedbacksDisplay = this.feedbacks.filter((feedback) => {
+        return this.currentFilters.length === 0 || this.currentFilters.indexOf(feedback.productId) !== -1;
+      });
+
+      this.filteredResults = this.results.filter((result) => {
+        return this.currentFilters.length === 0 || this.currentFilters.indexOf(result.productId) !== -1;
+      });
+      this.resultsDisplay = this.filteredResults.splice(0, 4);
+      this.totalResults = this.filteredResults.length + this.resultsDisplay.length;
+    });
+
     this.featureSubscription = Observable.forkJoin([
       featureObservable,
       surveyObservable,
@@ -72,6 +112,7 @@ export class AppComponent implements OnInit, OnDestroy {
       feedbackObservable,
       resultsObservable])
       .subscribe(([features, surveys, productGroups, feedbacks, results]) => {
+        // apply any existing filters
         this.productGroups = productGroups;
         this.features = features;
         this.surveys = surveys.filter((survey) => {
@@ -81,19 +122,8 @@ export class AppComponent implements OnInit, OnDestroy {
           return new Date(feedback.endDate) > yesterday;
         });
         this.results = results;
-        this.totalResults = results.length;
-        this.resultsDisplay = this.results.splice(0, 4);
-
-        // apply any existing filters
-        if (localStorage.getItem('dxp-filter')) {
-          this.currentFilters = JSON.parse(localStorage.getItem('dxp-filter'));
-          this.productGroups.forEach((group) => {
-            group.products.forEach((product) => {
-              product.filter = (this.currentFilters.indexOf(product.id) !== -1 );
-            });
-          });
-        }
-    });
+        this.emitter.next(this.currentFilters);
+      });
 
     this.sessionConfig = {
       appendArrows: '#carousel1 .pagination',
@@ -217,35 +247,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   loadMoreResults(): void {
-    if (this.results.length > 0) {
-      this.resultsDisplay = this.resultsDisplay.concat(this.results.splice(0, 4));
+    if (this.filteredResults.length > 0) {
+      this.resultsDisplay = this.resultsDisplay.concat(this.filteredResults.splice(0, 4));
     }
-  }
-
-  getFilteredSurveys(): SurveyModel[] {
-    if (this.currentFilters.length > 0 ) {
-      const filteredSurveys: SurveyModel[] = [];
-      this.surveys.forEach((survey) => {
-        if (this.currentFilters.indexOf(survey.productId) > -1) {
-          filteredSurveys.push(survey);
-        }
-      });
-      return filteredSurveys;
-    }
-    return this.surveys;
-  }
-
-  getFilteredSessions(): FeedbackModel[] {
-    if (this.currentFilters.length > 0 ) {
-      const filteredSessions: FeedbackModel[] = [];
-      this.feedbacks.forEach((feedback) => {
-        if (this.currentFilters.indexOf(feedback.productId) > -1) {
-          filteredSessions.push(feedback);
-        }
-      });
-      return filteredSessions;
-    }
-    return this.feedbacks;
   }
 
   generateEventLink(event: FeedbackModel): string {
@@ -267,13 +271,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   calculateSurveyPaging(currentSlideNumber: number): string {
     const comp = this.surveyModal;
-    const totalSlides = this.getFilteredSurveys().length;
+    const totalSlides = this.surveysDisplay.length;
     return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
   calculateSessionPaging(currentSlideNumber: number): string {
     const comp = this.sessionModal;
-    const totalSlides = this.getFilteredSessions().length;
+    const totalSlides = this.feedbacksDisplay.length;
     return this.calculatePaging(currentSlideNumber, this.slidesToShow, totalSlides);
   }
 
@@ -320,6 +324,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   updateSavedFilter(): void {
+    this.emitter.next(this.currentFilters);
     localStorage.setItem('dxp-filter', JSON.stringify(this.currentFilters));
   }
 
