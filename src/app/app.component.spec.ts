@@ -9,14 +9,12 @@ import { FeedbackService } from './services/feedback.service';
 import { ResultsService } from './services/results.service';
 import { DatePipe } from '@angular/common';
 import { SlickModule } from 'ngx-slick';
-import { ProductPipe } from './product.filter';
 import { FormsModule } from '@angular/forms';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        ProductPipe
+        AppComponent
       ],
       imports: [
         SlickModule.forRoot(),
