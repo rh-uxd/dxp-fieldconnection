@@ -1,10 +1,8 @@
 body {
-	position: relative;
 	@include media($desktop) {
 		background:url('assets/masthead-bg-full.svg') repeat-y;
 	}
 }
-
 .page-section  {
 	background: $blue-100;
 	padding-top: 4rem;
@@ -46,6 +44,11 @@ body {
 		}
 	}
 	}//header
+
+	&-message{
+		text-align: center;
+		color: $blue-300;
+	}
 }//page-section
 
 

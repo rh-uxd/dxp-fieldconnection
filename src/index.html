@@ -27,13 +27,13 @@
       $("html, body").animate({ scrollTop: 0 }, 600);
       return false;
     } );
-    // jQuery( document ).ready( function( $ ) {
-    // 	var body = document.body,
-    //         doc = document.documentElement;
-    //     $(window).scroll(function () {
-    //         body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
-    //     });
-    // });
+    jQuery( document ).ready( function( $ ) {
+    	var body = document.body,
+            doc = document.documentElement;
+        $(window).scroll(function () {
+            body.style.backgroundPosition = "0px " + ( 830 -(Math.max(doc.scrollTop, body.scrollTop) / 4) ) + "px";
+        });
+    });
     $(function() {
       //caches a jQuery object containing the header element
       var header = $(".header-main");

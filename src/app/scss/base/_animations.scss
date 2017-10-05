@@ -1,21 +1,21 @@
 @keyframes left-bubble {
   from{
-    transform: translateX(-100px);
+    transform:translateX(-100px);
     opacity: 0;
   }
   to{
-    transform: translateX(0px);
+    transform:translateX(0);
     opacity: 1;
   }
 }
 
 @keyframes right-bubble {
   from {
-    transform: translateX(100px);
+    transform:translateX(100px);
     opacity: 0;
   }
   to {
-    transform: translateX(0px);
+    transform:translateX(0);
     opacity: 1;
   }
 }
