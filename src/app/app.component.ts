@@ -77,15 +77,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (localStorage.getItem('dxp-filter')) {
       this.currentFilters = JSON.parse(localStorage.getItem('dxp-filter'));
+    }
+
+    this.filterObservable = Observable.create(e => this.emitter = e);
+    this.filterObservable.subscribe((filters) => {
       this.productGroups.forEach((group) => {
         group.products.forEach((product) => {
           product.filter = (this.currentFilters.indexOf(product.id) !== -1 );
         });
       });
-    }
 
-    this.filterObservable = Observable.create(e => this.emitter = e);
-    this.filterObservable.subscribe((filters) => {
       this.featuresDisplay = this.features.filter((feature) => {
         return this.currentFilters.length === 0 || this.currentFilters.indexOf(feature.productId) !== -1;
       });
@@ -319,7 +320,6 @@ export class AppComponent implements OnInit, OnDestroy {
   updateFilter(): void {
     // save to local storage here
     this.updateSavedFilter();
-    console.log('updating yo!');
     this.formOpen = false;
   }
 
