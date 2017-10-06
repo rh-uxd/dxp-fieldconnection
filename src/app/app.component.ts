@@ -317,6 +317,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.formOpen = true;
   }
 
+  closeFilter(): void {
+    this.formOpen = false;
+  }
+
   updateFilter(): void {
     // save to local storage here
     this.updateSavedFilter();
