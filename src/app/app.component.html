@@ -18,24 +18,28 @@
     <div class="filter">
       <div class="filter-bar">
         <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a>
-        <h4>current filters:</h4>
+        <h4 aria-label="current filters">current filters:</h4>
         <ul>
-          <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
-            <symbol id="checkmark" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
-              </path>
-            </symbol>
-          </svg>
-          <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)">close</span></li>
-          <li class="toggle" >
-            <span (click)="openFilter()" class="action" *ngIf="!formOpen">add</span>
-            <span (click)="updateFilter()" *ngIf="formOpen && filterForm.dirty">update</span>
-            <span (click)="closeFilter()" *ngIf="formOpen && filterForm.pristine">close</span>
+          <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)" aria-label="remove filter"></span></li>
+          <li class="toggle" aria-label="add filter" (click)="openFilter()" *ngIf="!formOpen">add
+            <span class="action"></span>
+          </li>
+          <li class="toggle" aria-label="update filters" (click)="updateFilter()" *ngIf="formOpen && filterForm.dirty">update
+            <span class="action" ></span>
+          </li>
+          <li aria-label="close filters" class="toggle" (click)="closeFilter()" *ngIf="formOpen && filterForm.pristine">close
+            <span  class="action"></span>
           </li>
         </ul>
       </div>
       <div class="filter-options">
         <p>Filter entries on page by product group or individual product</p>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+          <symbol id="checkmark" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-miterlimit="10" fill="none"  d="M22.9 3.7l-15.2 16.6-6.6-7.1">
+            </path>
+          </symbol>
+        </svg>
         <div class="filter-group" *ngFor="let productGroup of productGroups; let i = index">
           <div class="filter-group-item" >
             <input type="checkbox" class="input-checkbox productgroup-{{i}}" name="{{productGroup.groupName}}" [attr.id]="productGroup.groupName" (click)="triggerGroupSelect(productGroup)" [checked]="allProductsInGroupSelected(productGroup)">
