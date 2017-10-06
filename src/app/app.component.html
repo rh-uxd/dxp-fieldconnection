@@ -8,6 +8,7 @@
     <a href="#results">feedback results</a>
   </nav>
 </header>
+  <form #filterForm="ngForm">
   <section class="masthead">
     <div class="masthead-titles">
       <h1>connecting with the field</h1>
@@ -28,7 +29,8 @@
           <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)">close</span></li>
           <li class="toggle" >
             <span (click)="openFilter()" class="action" *ngIf="!formOpen">add</span>
-            <span (click)="updateFilter()" *ngIf="formOpen">update</span>
+            <span (click)="updateFilter()" *ngIf="formOpen && filterForm.dirty">update</span>
+            <span (click)="closeFilter()" *ngIf="formOpen && filterForm.pristine">close</span>
           </li>
         </ul>
       </div>
@@ -49,6 +51,7 @@
     </div><!-- filter -->
 
   </section>
+  </form>
   <section id="status" class="page-section page-section--status">
     <header class="page-section--header">
       <h1 class="h2">requested feature status</h1>
