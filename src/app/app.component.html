@@ -15,20 +15,22 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="400" height="62" viewBox="0 0 274.6 42.7"><style>.st022{fill:none;stroke:#ccc;stroke-width:1.5261;stroke-linecap:round;stroke-miterlimit:10}.st122{fill:url(#SVGID_1_)}.st222{fill:url(#SVGID_2_)}.st322{fill:url(#SVGID_3_)}.st422{fill:url(#SVGID_4_)}</style><g class="left-bubble"><path class="st022" d="M.8 22.1h77.7M51.1 6.8h27.4M55.7 38.8h22.8"/><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="99.948" y1=".765" x2="141.406" y2="36.504"><stop offset="0" stop-color="#68e0cf"/><stop offset="1" stop-color="#209cff"/></linearGradient><path class="st122 bubble" d="M125.7 0c-10.8 0-19.6 8.8-19.6 19.6 0 4.7 1.7 9.1 4.5 12.5l-2 5.5 4.7-2.8c3.4 2.8 7.7 4.4 12.4 4.4 10.8 0 19.6-8.8 19.6-19.6S136.5 0 125.7 0z"/></g><g class="right-bubble"><linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="172.213" y1="8.085" x2="126.467" y2="47.255"><stop offset="0" stop-color="#209cff"/><stop offset="1" stop-color="#68e0cf"/></linearGradient><path class="st222 bubble" d="M150.7 3.6c10.8 0 19.6 8.8 19.6 19.6 0 4.7-1.7 9.1-4.5 12.5l2 5.5-4.7-2.8c-3.4 2.8-7.7 4.4-12.4 4.4-10.8 0-19.6-8.8-19.6-19.6 0-10.9 8.7-19.6 19.6-19.6z"/><path class="st022" d="M273.8 22.1h-77.7M218.9 6.8h-22.8M225 38.8h-30.4"/></g></svg>
       <h2>feature status &amp; session notes</h2>
     </div>
-    <div class="filter">
+    <div class="filter" [ngClass]="{'filter-expanded': formOpen}">
       <div class="filter-bar">
-        <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a>
-        <h4 aria-label="current filters">current filters:</h4>
+        <a id="filter-toggle" class="btn btn-secondary" href="#">Filters</a><!-- TODO this is for mobile, I was using jquery to do this but removed it. Should I keep using it -->
+        <h4 aria-label="current filters">current filters: </h4>
+        <h4 style="display:none;">You have no filters applied.</h4> <!-- TODO only show when no filters are chosen -->
+
         <ul>
-          <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="close" (click)="removeFilter(activeFilter.product)" aria-label="remove filter"></span></li>
+          <li class="productgroup-{{activeFilter.productGroupIndex}}" *ngFor="let activeFilter of getActiveFilters()">{{activeFilter.product.name}}<span class="remove" (click)="removeFilter(activeFilter.product)" aria-label="remove filter"></span></li>
           <li class="toggle" aria-label="add filter" (click)="openFilter()" *ngIf="!formOpen">add
-            <span class="action"></span>
+            <span class="action add"></span>
           </li>
           <li class="toggle" aria-label="update filters" (click)="updateFilter()" *ngIf="formOpen && filterForm.dirty">update
-            <span class="action" ></span>
+            <span class="action add" ></span>
           </li>
           <li aria-label="close filters" class="toggle" (click)="closeFilter()" *ngIf="formOpen && filterForm.pristine">close
-            <span  class="action"></span>
+            <span  class="action close"></span>
           </li>
         </ul>
       </div>
@@ -61,7 +63,8 @@
       <h1 class="h2">requested feature status</h1>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
-    <table class="status-table">
+    <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
+    <table class="status-table"><!-- TODO hide table when there are no results -->
         <thead>
           <tr>
             <th scope="col">Product</th>
@@ -90,6 +93,7 @@
       <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveysDisplay.length}} </small>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--sm cards--surveys">
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)" (breakpoint)="onBreakpointChange($event)">
         <div ngxSlickItem class="card card--sm" *ngFor="let survey of surveysDisplay">
@@ -115,6 +119,7 @@
       <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{feedbacksDisplay.length}} </small>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--sm cards--sessions">
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
         <div ngxSlickItem class="card card--sm" *ngFor="let feedback of feedbacksDisplay">
@@ -137,6 +142,7 @@
       <h1 class="h2">Past Survey Results, Design Session Recording/notes</h1>
     </header>
     <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--lg">
       <div class="card card--lg" *ngFor="let result of resultsDisplay">
         <header class="card-header card-header--lg">
@@ -154,7 +160,7 @@
             <ng-container *ngIf="result.resultType === 'surveyResult'">
               <a class="cta" [href]="result.surveyLink">
                 <svg xmlns="http://www.w3.org/2000/svg" width="70.8" height="73.8" viewBox="0 0 70.8 73.8"><style>.st0{fill:#fff;stroke:#2a394f;stroke-width:3.1226;stroke-miterlimit:10}.st1{fill:#1085c7}.st2{fill:#fff}.st3{fill:#4f4f4f}.st4,.st5{fill:none;stroke:#1085c7;stroke-width:1.789;stroke-miterlimit:10}.st5{stroke-width:2.0323;stroke-linecap:round}</style><g class="icon"><path class="st0" d="M48.6 72.3H20.4c-2.9 0-5.4-2.4-5.4-5.4V29.6c0-2.9 2.4-5.4 5.4-5.4h28.1c2.9 0 5.4 2.4 5.4 5.4v37.3c0 3-2.4 5.4-5.3 5.4z"/><circle class="st1" cx="25.3" cy="46.8" r="1.4"/><path class="st1" d="M28.7 45.6H45v2.3H28.7z"/><circle class="st1" cx="25.3" cy="54.4" r="1.4"/><path class="st1" d="M28.7 53.3H45v2.3H28.7z"/><circle class="st1" cx="25.3" cy="62.1" r="1.4"/><path class="st1" d="M28.7 61H45v2.3H28.7z"/><circle class="st1" cx="34.5" cy="37" r="5"/><path class="st2" d="M36.1 35l-2.3 2.3-.9-.9-.9.9.9.9.9.9.9-.9 2.3-2.3z"/><path class="st3" d="M41.5 20.5h-3.9c-.1-1.5-1.4-2.7-2.9-2.7s-2.8 1.2-2.9 2.7h-3.9c-2.1 0-3.8 1.7-3.8 3.8v3.8h21.2v-3.8c0-2.1-1.7-3.8-3.8-3.8zm-6.8.9c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9z"/></g><circle class="st4 magic magic-1" cx="3.6" cy="29.2" r="2.7"/><g class="magic magic-2"><path class="st5" d="M21.5 1l3.4 3.5m-3.4 0L24.9 1"/></g><g class="magic magic-3"><path class="st5" d="M66.3 33.4l3.5 3.5m-3.5 0l3.5-3.5"/></g><circle class="st1 magic magic-4" cx="52.7" cy="9.8" r="2.7"/></svg>
-                <span class="cta-title">survey result</span>
+                <span class="cta-title">survey results</span>
                 <span class="btn btn-primary">view</span>
               </a>
             </ng-container>

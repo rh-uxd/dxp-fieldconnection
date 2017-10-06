@@ -202,7 +202,7 @@ body {
 //---------------------- card-wrapper styles
 
 .cards--lg {
-	padding: 0 1rem;
+	padding: 0 5%;
 	width:100%;
 	@include media($mobile-up) {
 		padding: 0 1rem;
@@ -232,8 +232,9 @@ body {
 							 0px 8px 13px rgba($grey-500,.02),
 							 0px 18px 23px rgba($grey-500,.02);
 	display: flex;
-	align-items: stretch;
-	// flex-direction: column;
+	@include media($mobile-up) {
+		align-items: stretch;
+	}
 	flex-wrap: wrap;
 	transition: all .25s linear;
 
@@ -280,8 +281,8 @@ body {
 		padding:5%;
 		@include media($mobile-up){
 			padding:2rem;
+			flex:1 auto;
 		}
-		flex:1 auto;
 		.h3 {
 			font-family: $body-bold;
 			text-transform: uppercase;
@@ -406,6 +407,11 @@ body {
 		}
 	}//--sm just small cards
 
+	&--lg{
+		@include media($mobile-small){
+			max-width: 300px;
+		}
+	}
 	&:hover {
 		box-shadow: 0px 4px 6px rgba($grey-500, .08),
 								 0px 8px 13px rgba($grey-500,.08),

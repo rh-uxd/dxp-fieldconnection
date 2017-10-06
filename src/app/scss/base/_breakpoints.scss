@@ -1,5 +1,5 @@
 /* Bourbon Neat Breakpoints*/
-$mobile-small :new-breakpoint(max-width 480px);
+$mobile-small :new-breakpoint(max-width 320px);
 $mobile: new-breakpoint(max-width 500px);
 $mobile-up: new-breakpoint(min-width 660px);
 $mobile-down: new-breakpoint(max-width 659px);
