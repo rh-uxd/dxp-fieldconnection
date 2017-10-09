@@ -43,7 +43,12 @@ export class AppComponent implements OnInit, OnDestroy {
   public surveySlide = 0;
   public sessionSlide = 0;
   public currentFilters: string[] = [];
-  public formOpen: boolean = false;
+  public formOpen = false;
+
+  public surveys: SurveyModel[] = [];
+  public features: FeatureModel[] = [];
+  public feedbacks: FeedbackModel[]= [];
+  public results: ResultsModel[] = [];
 
   @ViewChild('surveyModal') surveyModal: SlickComponent;
   @ViewChild('sessionModal') sessionModal: SlickComponent;
@@ -53,10 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private slidesToShow: number;
   private filterObservable: Observable<string []>;
   private emitter: any;
-  private surveys: SurveyModel[] = [];
-  private features: FeatureModel[] = [];
-  private feedbacks: FeedbackModel[]= [];
-  private results: ResultsModel[] = [];
+
 
   constructor (private featureService: FeatureService,
                private surveyService: SurveyService,

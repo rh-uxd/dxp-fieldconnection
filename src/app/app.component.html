@@ -62,9 +62,9 @@
     <header class="page-section--header">
       <h1 class="h2">requested feature status</h1>
     </header>
-    <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 class="page-section-message" *ngIf="featuresDisplay.length === 0">There are currently no results for your selected filter(s).</h2>
     <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
-    <table class="status-table"><!-- TODO hide table when there are no results -->
+    <table class="status-table" *ngIf="featuresDisplay.length !== 0">
         <thead>
           <tr>
             <th scope="col">Product</th>
@@ -92,7 +92,7 @@
       </div>
       <small class="page-count"><strong>showing {{calculateSurveyPaging(surveySlide)}} </strong> of {{surveysDisplay.length}} </small>
     </header>
-    <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 class="page-section-message" *ngIf="surveysDisplay.length === 0">There are currently no results for your selected filter(s).</h2>
     <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--sm cards--surveys">
       <ngx-slick class="carousel" #surveyModal="slick-modal" [config]="surveyConfig" (afterChange)="afterSurveyChange($event)" (breakpoint)="onBreakpointChange($event)">
@@ -118,7 +118,7 @@
       </div>
       <small class="page-count slider-paging-number"><strong>showing {{calculateSessionPaging(sessionSlide)}} </strong> of {{feedbacksDisplay.length}} </small>
     </header>
-    <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 class="page-section-message" *ngIf="feedbacksDisplay.length === 0">There are currently no results for your selected filter(s).</h2>
     <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--sm cards--sessions">
       <ngx-slick class="carousel" #sessionModal="slick-modal" [config]="sessionConfig" (afterChange)="afterSessionChange($event)">
@@ -141,7 +141,7 @@
     <header class="page-section--header">
       <h1 class="h2">Past Survey Results, Design Session Recording/notes</h1>
     </header>
-    <h2 style="display:none;" class="page-section-message">There are currently no results for your selected filter(s).</h2>
+    <h2 class="page-section-message" *ngIf="resultsDisplay.length === 0">There are currently no results for your selected filter(s).</h2>
     <h2 style="display:none;" class="page-section-message">Please apply a filter above to see results</h2>
     <div class="cards cards--lg">
       <div class="card card--lg" *ngFor="let result of resultsDisplay">
