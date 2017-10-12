@@ -1,14 +1,15 @@
 .header-main {
-	display:flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	position: fixed;
+	@include media($mobile-up){
+		position: fixed;
+	}
 	top:0;
 	left:0;
 	z-index: 1000;
 	width: 100%;
-	background:rgba(255,255,255,0.7);
 	@include media($tablet) {
 		justify-content: space-between;
 	}
@@ -19,8 +20,10 @@
 	}
 	&.scroll {
 		padding:.85rem;
+		background: $white;
+		box-shadow: 1px 1px 10px rgba($blue-300, 0.1);
 		.logo {
-			max-width: 200px;
+			max-width: 300px;
 		}
 		.nav-main a:hover:after{
 			@include media($tablet) {
@@ -30,6 +33,7 @@
 	}
 	&:not(.scroll) {
 		padding:1rem;
+		background:rgba(255,255,255,0.7);
 		.logo {
 			max-width: 300px;
 		}

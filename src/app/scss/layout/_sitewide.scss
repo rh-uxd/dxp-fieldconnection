@@ -233,14 +233,15 @@ body {
 							 0px 18px 23px rgba($grey-500,.02);
 	display: flex;
 	@include media($mobile-up) {
-		align-items: stretch;
+		align-content: flex-start;
 	}
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	transition: all .25s linear;
 
 	&-header {
 		display:flex;
 		align-items: center;
+		align-self: flex-start;
 		justify-content: space-between;
 		flex:1 auto;
 		color:$purple-200;
