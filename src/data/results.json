@@ -1,95 +1,33 @@
 {
   "results": [
     {
-      "productId": "openshiftio",
-      "resultDate": "2017/08/14",
-      "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "satellite",
-      "resultDate": "2017/09/14",
-      "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
+      "productId": "bpm",
+      "resultDate": "2017/10/5",
       "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
+      "title": "Product Terminology and Component Naming",
+      "description": "Discussion with the tech writers and field around naming in the product.",
+      "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fdocs.google.com%2Fa%2Fredhat.com%2Fspreadsheets%2Fd%2F1kmK92hY3JJp7gZTvLzd0CawaZzvI2MYYv2uaLaQcMJc%2Fedit%3Fusp%3Dsharing"
     }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
+      "productId": "bpm",
+      "resultDate": "2017/09/28",
       "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
+      "title": "Process Admin Console wireframe review",
+      "description": "We review and hear feedback from the field on the process admin console design.",
+      "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FzhDmP%2F"
     }, {
-      "productId": "openshiftio",
-      "resultDate": "2017/08/14",
+      "productId": "bpm",
+      "resultDate": "2017/09/7",
+      "resultType": "designSession",
+      "title": "Column Wizard design review",
+      "description": "A new proposal for the column wizard is reviewed with the field.",
+      "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1drOHlN_gSiRbOn-vVz3jEeWEHofB2ts3mfr-nQfI-34%2Fedit"
+    }, {
+      "productId": "bpm",
+      "resultDate": "2017/07/24",
       "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "satellite",
-      "resultDate": "2017/09/14",
-      "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
-      "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
-    }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
-      "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
-    }, {
-      "productId": "openshiftio",
-      "resultDate": "2017/08/14",
-      "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "satellite",
-      "resultDate": "2017/09/14",
-      "resultType": "surveyResult",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "surveyLink": "http://www.redhat.com"
-    }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
-      "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
-    }, {
-      "productId": "ipaas",
-      "resultDate": "2017/09/17",
-      "resultType": "designSession",
-      "title": "Prioritizing Customer Cases",
-      "description": "What are the top 2 customer cases that you'd like to prioritize?",
-      "reviewLink": "http://www.redhat.com",
-      "notesLink": "http://www.redhat.com"
+      "title": "Information Architecture Card Sort Results and Write up",
+      "description": "A study was done with the field regarding how they envision the concepts of the product would live together in the UI.",
+      "surveyLink": "https://docs.google.com/presentation/d/1gGA_Mp1RqQxmm8k8F_7z6nIxmszzzjjm1sWNFL4DZjc/edit#slide=id.gb6edfa308_2_28"
     }
   ]
 }
