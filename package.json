@@ -51,7 +51,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "./node_modules/.bin/http-server dist/ -a 0.0.0.0 -p8080",
+    "start": "./node_modules/.bin/http-server dist/ -a 0.0.0.0 -p8080 -c-1",
     "clean": "rm -rf dist/*"
   },
   "repository": {
