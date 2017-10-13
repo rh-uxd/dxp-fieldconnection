@@ -104,9 +104,11 @@
               <time>{{survey.expirationDate | date: "MM | dd | yy" }}</time>
             </div>
           </header>
+          <div class="card-content">
           <h4 class="h4">{{survey.title}}</h4>
           <a [href]="survey.surveyLink" class="btn btn-primary" target="_blank">take survey</a>
         </div>
+      </div>
       </ngx-slick>
     </div><!--cards-->
   </section>
@@ -130,8 +132,10 @@
               <time>{{feedback.startDate | date: "h:mm a Z" }}</time>
             </div>
           </header>
+          <div class="card-content">
           <h4 class="h4">{{feedback.description}}</h4>
           <a [href]="generateEventLink(feedback)" target="_blank" rel="nofollow" class="btn btn-primary">add to calendar</a>
+        </div>
         </div>
       </ngx-slick>
     </div><!--cards-->
