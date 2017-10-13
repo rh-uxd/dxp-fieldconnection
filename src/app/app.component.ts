@@ -30,7 +30,7 @@ import { ProductModel } from './models/product.model';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  public featuresDisplay: FeatureModel[];
+  public featuresDisplay: FeatureModel[] = [];
   public surveysDisplay: SurveyModel[] = [];
   public productGroups: ProductGroupModel[] = [];
   public feedbacksDisplay: FeedbackModel[]= [];
