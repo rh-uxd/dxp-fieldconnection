@@ -23,9 +23,9 @@
 		background: $white;
 		box-shadow: 1px 1px 10px rgba($blue-300, 0.1);
 		.logo {
-			max-width: 300px;
+			max-width: 220px;
 		}
-		.nav-main a:hover:after{
+		.nav-main a:hover:after {
 			@include media($tablet) {
 				bottom:-1.2rem;
 			}
@@ -37,14 +37,14 @@
 		.logo {
 			max-width: 300px;
 		}
-		.nav-main a:hover:after{
+		.nav-main a:hover:after {
 			@include media($tablet) {
 				bottom:-2rem;
 			}
 		}
 	}
 
-}
+}//header
 
 .nav-main {
 	display:none;
@@ -60,33 +60,34 @@
 		margin-top:1rem;
 		width:100%;
 	}
-		a {
-			font-family: $display;
-			text-transform: uppercase;
-			@include font-size(20);
-			text-decoration: none;
-			color:$blue-400;
-			letter-spacing: 1px;
-			position:relative;
-
-				&:not(:first-child) {
-					margin-left:1rem;
-				}
-
-					&:after {
-						content:'';
-						width:100%;
-						height:5px;
-						@include linear-gradient(42deg, $teal 0%, $blue-200 100%);
-						display:block;
-						@include fancy-hover;
-					}
-
-					&:hover {
-						&:after {
-							opacity: 1;
-							bottom: -1rem;
-						}
-					}
-			}//a
 }//nav-main
+
+.nav-main--link {
+	font-family: $display;
+	text-transform: uppercase;
+	@include font-size(20);
+	text-decoration: none;
+	color:$blue-400;
+	letter-spacing: 1px;
+	position:relative;
+
+		&:not(:first-child) {
+			margin-left:1rem;
+		}
+
+			&:after {
+				content:'';
+				width:100%;
+				height:5px;
+				@include linear-gradient(42deg, $teal 0%, $blue-200 100%);
+				display:block;
+				@include fancy-hover;
+			}
+
+			&:hover {
+				&:after {
+					opacity: 1;
+					bottom: -1rem;
+				}
+			}
+	}//a
