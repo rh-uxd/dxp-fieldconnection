@@ -13,14 +13,14 @@
 		align:center;
 	}
 
-	&-primary {
+	&--primary {
 		border: 2px solid $blue-150;
 		color:$blue-300;
 		background: $white;
 
 	}
 
-	&-secondary {
+	&--secondary {
 		color: $white;
 		@include linear-gradient(10deg, $teal 0%, $blue-200 100%);
 		transition: all .25s linear;
