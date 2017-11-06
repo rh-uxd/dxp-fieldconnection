@@ -14,13 +14,13 @@
     },
     {
       "productId": "bpm",
-      "expirationDate": "2017/10/30",
+      "expirationDate": "2018/10/30",
       "title": "Top Tasks",
       "surveyLink": "https://docs.google.com/a/redhat.com/forms/d/e/1FAIpQLSfEXL3xonu42EO_aY8r34ft7_fQ-dWU8eW1Z6vpBiFSM-8LHQ/closedform"
     },
     {
       "productId": "satellite",
-      "expirationDate": "2017/10/30",
+      "expirationDate": "2018/10/30",
       "title": "Top Tasks",
       "surveyLink": "https://docs.google.com/a/redhat.com/forms/d/e/1FAIpQLSfEXL3xonu42EO_aY8r34ft7_fQ-dWU8eW1Z6vpBiFSM-8LHQ/closedform"
     },
@@ -35,6 +35,13 @@
       "expirationDate": "2017/09/14",
       "title": "Cluster Level Dashboard",
       "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSe4YroVsaxHlTWLlt6WJAInfCiNVBhvJifYn6r3lvapDkOJoA/viewform"
+    },
+    {
+      "productId": "rhv",
+      "expirationDate": "2018/09/14",
+      "title": "VM State Icons",
+      "surveyLink": "https://qtrial2017q3az1.az1.qualtrics.com/jfe/form/SV_5zOEPKd24JMwAaV"
     }
+
   ]
 }

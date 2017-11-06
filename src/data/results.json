@@ -2,6 +2,35 @@
   "results": [
     {
       "productId": "bpm",
+      "resultDate": "2017/11/2",
+      "resultType": "designSession",
+      "title": "Entando and End-User Applications",
+      "description": "PM walks through Entando and shows a demo video highlighting how it can be used in customer discussions.",
+      "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2Ff7G_m%2F"
+    }, {
+      "productId": "bpm",
+      "resultDate": "2017/10/26",
+      "resultType": "designSession",
+      "title": "Process and Task List / Table Design Review",
+      "description": "Liz Clayton shows off the Task List / Table Designs she is working on and gets feedback from the Field.",
+      "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FbMzaF%2F"
+    }, {
+      "productId": "bpm",
+      "resultDate": "2017/10/19",
+      "resultType": "designSession",
+      "title": "New Product Installer and Installation Experience",
+      "description": "Developers show off the latest and greatest installation experience and hear feedback from the field.",
+      "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FiXIKe%2F"
+    }, {
+      "productId": "bpm",
+      "resultDate": "2017/10/12",
+      "resultType": "designSession",
+      "title": "Project Navigation and Workflow",
+      "description": "The current product navigation and workflow is reviewed and discussed with the Field.",
+      "reviewLink":"https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FBlp4I%2F",
+      "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fredhat.invisionapp.com%2Fshare%2FSWE5HIF8V%23%2Fscreens"
+    }, {
+      "productId": "bpm",
       "resultDate": "2017/10/5",
       "resultType": "designSession",
       "title": "Product Terminology and Component Naming",
