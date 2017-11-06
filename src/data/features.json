@@ -2,8 +2,8 @@
   "features": [
     {
       "productId": "bpm",
-      "product": "BPM - Information Architecture",
-      "notes": "The BPM IA needs an overhaul based on field feedback.",
+      "product": "BPM",
+      "notes": "The BPM Information Architecture needs an overhaul based on field feedback.",
       "status": "In Design",
       "statusIcon": "inprogress",
       "action": "DESIGN TBD",
@@ -11,7 +11,7 @@
     },
     {
       "productId": "bpm",
-      "product": "BPM - Add Column",
+      "product": "BPM",
       "notes": "Today, the add column wizard is tedious. It could probably be condensed to one form.",
       "status": "Design Complete",
       "statusIcon": "inprogress",
@@ -20,7 +20,7 @@
     },
     {
       "productId": "satellite",
-      "product": "VMs vs. Host Icon Redesign",
+      "product": "Satellite",
       "notes": "We need to come up with a good solution to differentiate between hosts and VMs in our iconography.",
       "status": "Blocked By Dev",
       "statusIcon": "blocked",
@@ -29,7 +29,7 @@
     },
     {
       "productId": "satellite",
-      "product": "Vertical Navigation",
+      "product": "Satellite",
       "notes": "The field would like to see vertical navigation rather than horizontal.",
       "status": "Released In 6.3",
       "statusIcon": "released",
