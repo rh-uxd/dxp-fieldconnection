@@ -1,28 +1,28 @@
 {
   "results": [
     {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/11/2",
       "resultType": "designSession",
       "title": "Entando and End-User Applications",
       "description": "PM walks through Entando and shows a demo video highlighting how it can be used in customer discussions.",
       "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2Ff7G_m%2F"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/10/26",
       "resultType": "designSession",
       "title": "Process and Task List / Table Design Review",
       "description": "Liz Clayton shows off the Task List / Table Designs she is working on and gets feedback from the Field.",
       "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FbMzaF%2F"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/10/19",
       "resultType": "designSession",
       "title": "New Product Installer and Installation Experience",
       "description": "Developers show off the latest and greatest installation experience and hear feedback from the field.",
       "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FiXIKe%2F"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/10/12",
       "resultType": "designSession",
       "title": "Project Navigation and Workflow",
@@ -30,28 +30,28 @@
       "reviewLink":"https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FBlp4I%2F",
       "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fredhat.invisionapp.com%2Fshare%2FSWE5HIF8V%23%2Fscreens"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/10/5",
       "resultType": "designSession",
       "title": "Product Terminology and Component Naming",
       "description": "Discussion with the tech writers and field around naming in the product.",
       "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fdocs.google.com%2Fa%2Fredhat.com%2Fspreadsheets%2Fd%2F1kmK92hY3JJp7gZTvLzd0CawaZzvI2MYYv2uaLaQcMJc%2Fedit%3Fusp%3Dsharing"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/09/28",
       "resultType": "designSession",
       "title": "Process Admin Console wireframe review",
       "description": "We review and hear feedback from the field on the process admin console design.",
       "reviewLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fbluejeans.com%2Fs%2FzhDmP%2F"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/09/7",
       "resultType": "designSession",
       "title": "Column Wizard design review",
       "description": "A new proposal for the column wizard is reviewed with the field.",
       "notesLink": "https://mojo.redhat.com/external-link.jspa?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1drOHlN_gSiRbOn-vVz3jEeWEHofB2ts3mfr-nQfI-34%2Fedit"
     }, {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "resultDate": "2017/07/24",
       "resultType": "surveyResult",
       "title": "Information Architecture Card Sort Results and Write up",

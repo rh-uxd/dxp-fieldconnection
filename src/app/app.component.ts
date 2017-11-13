@@ -94,15 +94,15 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
       this.surveysDisplay = this.surveys.filter((survey) => {
-        return this.currentFilters.length === 0 || this.currentFilters.indexOf(survey.productId) !== -1;
+        return this.currentFilters.length === 0 || this.intersects(this.currentFilters, survey.productIds);
       });
 
       this.feedbacksDisplay = this.feedbacks.filter((feedback) => {
-        return this.currentFilters.length === 0 || this.currentFilters.indexOf(feedback.productId) !== -1;
+        return this.currentFilters.length === 0 || this.intersects(this.currentFilters, feedback.productIds);
       });
 
       this.filteredResults = this.results.filter((result) => {
-        return this.currentFilters.length === 0 || this.currentFilters.indexOf(result.productId) !== -1;
+        return this.currentFilters.length === 0 || this.intersects(this.currentFilters, result.productIds);
       });
       this.resultsDisplay = this.filteredResults.splice(0, 4);
       this.totalResults = this.filteredResults.length + this.resultsDisplay.length;
@@ -217,6 +217,14 @@ export class AppComponent implements OnInit, OnDestroy {
     return productName;
   }
 
+  getJoinedProducts(productIds: string[] = []): string {
+    let joinedProducts: string[] = [];
+    productIds.forEach((id) => {
+      joinedProducts.push(this.getProductName(id));
+    });
+    return joinedProducts.join(', ');
+  }
+
   getProductGroup(productId: string): string {
     let groupGroupName = '';
     if (this.productGroups) {
@@ -249,6 +257,20 @@ export class AppComponent implements OnInit, OnDestroy {
     return matchingIndex;
   }
 
+  getMatchingProductGroups(productIds: string[] = []): any[] {
+    const matchingGroups: any[] = [];
+    const addedIndex: number[] = [];
+    productIds.forEach((productId) => {
+      const index = this.getProductGroupIndex(productId);
+      const matchingGroup = {name: this.getProductGroup(productId), index: index};
+      if (addedIndex.indexOf(index) === -1) {
+        matchingGroups.push(matchingGroup);
+        addedIndex.push(index);
+      }
+    });
+    return matchingGroups;
+  }
+
   loadMoreResults(): void {
     if (this.filteredResults.length > 0) {
       this.resultsDisplay = this.resultsDisplay.concat(this.filteredResults.splice(0, 4));
@@ -258,7 +280,7 @@ export class AppComponent implements OnInit, OnDestroy {
   generateEventLink(event: FeedbackModel): string {
     const startDate = this.datePipe.transform(event.startDate, 'yMMddThhmmss');
     const endDate = this.datePipe.transform(event.endDate, 'yMMddThhmmss');
-    const title = 'DXP Feedback Session: ' + this.getProductName(event.productId);
+    const title = 'DXP Feedback Session: ' + this.getJoinedProducts(event.productIds);
     // tslint:disable-next-line
     return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${event.description}&sf=true&output=xml`;
   }
@@ -405,5 +427,15 @@ export class AppComponent implements OnInit, OnDestroy {
     if (index !== -1) {
       array.splice(index, 1);
     }
+  }
+
+  private intersects(first: string[], second: string[]): boolean {
+    let intersects = false;
+    first.forEach((item) => {
+      if (second.indexOf(item) > -1 ){
+        intersects = true;
+      }
+    });
+    return intersects;
   }
 }

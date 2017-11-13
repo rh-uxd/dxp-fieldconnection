@@ -106,13 +106,13 @@
             <div class="card__header__meta">
               <small class="card__header__meta__time">expires on <time>{{survey.expirationDate | date: "MM | dd | yy" }}</time></small>
               <ul class="card__header__meta__icons">
-              <li [attr.data-balloon]="getProductGroup(survey.productId)" data-balloon-pos="left">
-                <i class="productgroup--{{getProductGroupIndex(survey.productId)}} product-icon product-icon--sm"></i>
+              <li *ngFor="let group of getMatchingProductGroups(survey.productIds)" [attr.data-balloon]="group.name" data-balloon-pos="left">
+                <i class="productgroup--{{group.index}} product-icon product-icon--sm"></i>
               </li>
               </ul>
             </div>
-<!-- TODO: the tooltip on the h3's first span would be all the names of the products in the second span -->
-            <h3 class="h4"><span [attr.data-balloon]="getProductName(survey.productId)" data-balloon-pos="down-left"><span class="ellipsis">{{getProductName(survey.productId)}}</span></span></h3>
+            <!-- join all products and put comma between -->
+            <h3 class="h4"><span [attr.data-balloon]="getJoinedProducts(survey.productIds)" data-balloon-pos="down-left"><span class="ellipsis">{{getJoinedProducts(survey.productIds)}}</span></span></h3>
           </header>
           <div class="card__content">
           <h4 class="h4">{{survey.title}}</h4>
@@ -139,13 +139,12 @@
             <div class="card__header__meta">
               <small class="card__header__meta__time">{{feedback.startDate | date: "MM | dd | yy" }} <time>{{feedback.startDate | date: "h:mm a Z" }}</time></small>
               <ul class="card__header__meta__icons">
-              <li [attr.data-balloon]="getProductGroup(feedback.productId)" data-balloon-pos="left">
-                <i class="productgroup--{{getProductGroupIndex(feedback.productId)}} product-icon product-icon--sm"></i>
+              <li *ngFor="let group of getMatchingProductGroups(feedback.productIds)" [attr.data-balloon]="group.name" data-balloon-pos="left">
+                <i class="productgroup--{{group.index}} product-icon product-icon--sm"></i>
               </li>
               </ul>
             </div>
-<!-- TODO: the tooltip on the h3's first span would be all the names of the products in the second span -->
-              <h3 class="h4"><span [attr.data-balloon]="getProductName(feedback.productId)" data-balloon-pos="down-left"><span class="ellipsis">{{getProductName(feedback.productId)}}</span></span></h3>
+              <h3 class="h4"><span [attr.data-balloon]="getJoinedProducts(feedback.productIds)" data-balloon-pos="down-left"><span class="ellipsis">{{getJoinedProducts(feedback.productIds)}}</span></span></h3>
           </header>
           <div class="card__content">
           <h4 class="h4">{{feedback.description}}</h4>
@@ -168,13 +167,12 @@
           <div class="card__header__meta">
             <small class="card__header__meta__time"><time>{{result.resultDate | date: "MM | dd | yy" }}</time></small>
             <ul class="card__header__meta__icons">
-            <li [attr.data-balloon]="getProductGroup(result.productId)" data-balloon-pos="left">
-              <i class="productgroup--{{getProductGroupIndex(result.productId)}} product-icon product-icon--lg"></i>
-            </li>
+              <li *ngFor="let group of getMatchingProductGroups(result.productIds)" [attr.data-balloon]="group.name" data-balloon-pos="left">
+                <i class="productgroup--{{group.index}} product-icon product-icon--lg"></i>
+              </li>
             </ul>
           </div>
-<!-- TODO: the tooltip on the h3's first span would be all the names of the products in the second span -->
-          <h3 class="h3"><span [attr.data-balloon]="getProductName(result.productId)" data-balloon-pos="down-left"><span>{{getProductName(result.productId)}}</span></span></h3>
+          <h3 class="h3"><span [attr.data-balloon]="getJoinedProducts(result.productIds)" data-balloon-pos="down-left"><span>{{getJoinedProducts(result.productIds)}}</span></span></h3>
         </header>
         <div class="card__content">
           <h2 class="h3" *ngIf="result.resultType === 'surveyResult'">Survey Results:</h2>
