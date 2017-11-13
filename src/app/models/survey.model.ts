@@ -1,5 +1,5 @@
 export class SurveyModel {
-  productId: string;
+  productIds: string[];
   expirationDate: Date;
   title: string;
   surveyLink: string;

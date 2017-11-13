@@ -1,13 +1,13 @@
 {
   "feedback": [
     {
-      "productId": "bpm",
+      "productIds": ["bpm"],
       "startDate": "2017-11-09T10:00:00-05:00",
       "endDate": "2017-11-09T10:55:00-05:00",
       "description": "BPM - Bi-weekly Design Review"
     },
     {
-      "productId": "ipaas",
+      "productIds": ["ipaas"],
       "startDate": "2017-11-26T08:00:00-05:00",
       "endDate": "2017-11-26T09:00:00-05:00",
       "description": "iPaas - Monthly Design Review"

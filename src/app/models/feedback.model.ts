@@ -1,5 +1,5 @@
 export class FeedbackModel {
-  productId: string;
+  productIds: string[];
   startDate: Date;
   endDate: Date;
   description: string;

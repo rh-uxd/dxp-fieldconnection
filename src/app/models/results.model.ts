@@ -1,5 +1,5 @@
 export class ResultsModel {
-  productId: string;
+  productIds: string[];
   resultDate: Date;
   resultType: string;
   title: string;
