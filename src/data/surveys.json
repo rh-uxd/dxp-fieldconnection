@@ -1,16 +1,10 @@
 {
   "surveys": [
     {
-      "productIds": ["satellite"],
-      "expirationDate": "2017/10/11",
-      "title": "Vertical Navigation vs. Horizontal Navigation",
-      "surveyLink": "http://www.redhat.com"
-    },
-    {
-      "productIds": ["bpm"],
-      "expirationDate": "2017/10/20",
-      "title": "Information Architecture Card Sort",
-      "surveyLink": "http://www.redhat.com"
+      "productIds": ["openshift"],
+      "expirationDate": "2018/10/11",
+      "title": "Top Tasks",
+      "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSfJ8D_H_I9m963vJs34k7vjaqD9Vkh20HhdBJcVllB0ZdgYsg/viewform?usp=sf_link"
     },
     {
       "productIds": ["bpm"],
