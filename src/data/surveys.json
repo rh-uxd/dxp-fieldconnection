@@ -20,13 +20,13 @@
     },
     {
       "productIds": ["satellite"],
-      "expirationDate": "2017/10/22",
+      "expirationDate": "2018/10/22",
       "title": "Two Pane View",
       "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSe6lLng2KblnclZTf3pkm0HlmWOSu70q-5TGzTf421Oc-ZcFQ/viewform"
     },
     {
       "productIds": ["rhv"],
-      "expirationDate": "2017/09/14",
+      "expirationDate": "2018/09/14",
       "title": "Cluster Level Dashboard",
       "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSe4YroVsaxHlTWLlt6WJAInfCiNVBhvJifYn6r3lvapDkOJoA/viewform"
     },
