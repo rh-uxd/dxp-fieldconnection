@@ -2,7 +2,7 @@
   "features": [
     {
       "productId": ["satellite","cloudforms","ansible"],
-      "product": "Satellite, CloudForms, and Ansible",
+      "product": "Satellite, CloudForms, Ansible",
       "notes": "Patching systems within a DMZ requires using 3 different products to complete. Provision server via CloudForms, send to Satellite to upgrade software, post config via Ansible playbook.",
       "status": "In Design",
       "statusIcon": "inprogress",
@@ -11,7 +11,7 @@
     },
     {
       "productId": ["3scale","openshift"],
-      "product": "3scale and OpenShift",
+      "product": "3scale, OpenShift",
       "notes": "API management within Openshift requires moving over to 3scale if you want to bleed users over to a new verion. Would be nice to be able to do via OpenShift UI.",
       "status": "In Design",
       "statusIcon": "inprogress",
