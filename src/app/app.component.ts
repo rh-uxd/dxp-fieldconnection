@@ -129,7 +129,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
     this.sessionConfig = {
-      appendArrows: '#carousel1 .pagination',
+      appendArrows: '#carousel1 .cards__pagination',
       prevArrow: '<button class="slick-prev">Previous</button>',
       nextArrow: '<button class="slick-next">Next</button>',
       dots: false,
@@ -163,7 +163,7 @@ export class AppComponent implements OnInit, OnDestroy {
     };
 
     this.surveyConfig = {
-      appendArrows: '#carousel0 .pagination',
+      appendArrows: '#carousel0 .cards__pagination',
       prevArrow: '<button class="slick-prev">Previous</button>',
       nextArrow: '<button class="slick-next">Next</button>',
       dots: false,
