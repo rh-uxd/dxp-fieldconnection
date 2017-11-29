@@ -31,6 +31,12 @@
         }, {
           "id": "rhv",
           "name": "RHV"
+        }, {
+          "id": "ansible",
+          "name": "Ansible Tower"
+        }, {
+          "id": "3scale",
+          "name": "3scale"
         }
       ]
     }
