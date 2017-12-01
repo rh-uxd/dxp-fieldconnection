@@ -90,7 +90,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
       this.featuresDisplay = this.features.filter((feature) => {
-        return this.currentFilters.length === 0 || this.currentFilters.indexOf(feature.productId) !== -1;
+        return this.currentFilters.length === 0 || this.intersects(this.currentFilters, feature.productIds);
       });
 
       this.surveysDisplay = this.surveys.filter((survey) => {

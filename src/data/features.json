@@ -1,8 +1,7 @@
 {
   "features": [
     {
-      "productId": ["satellite","cloudforms","ansible"],
-      "product": "Satellite, CloudForms, Ansible",
+      "productIds": ["satellite","cloudforms","ansible"],
       "notes": "Patching systems within a DMZ requires using 3 different products to complete. Provision server via CloudForms, send to Satellite to upgrade software, post config via Ansible playbook.",
       "status": "In Design",
       "statusIcon": "inprogress",
@@ -10,8 +9,7 @@
       "actionLink": ""
     },
     {
-      "productId": ["3scale","openshift"],
-      "product": "3scale, OpenShift",
+      "productIds": ["3scale","openshift"],
       "notes": "API management within Openshift requires moving over to 3scale if you want to bleed users over to a new verion. Would be nice to be able to do via OpenShift UI.",
       "status": "In Design",
       "statusIcon": "inprogress",
@@ -19,8 +17,7 @@
       "actionLink": ""
     },
     {
-      "productId": "bpm",
-      "product": "BPM",
+      "productIds": ["bpm"],
       "notes": "The BPM Information Architecture needs an overhaul based on field feedback.",
       "status": "In Design",
       "statusIcon": "inprogress",
@@ -28,8 +25,7 @@
       "actionLink": ""
     },
     {
-      "productId": "bpm",
-      "product": "BPM",
+      "productIds": ["bpm"],
       "notes": "Today, the add column wizard is tedious. It could probably be condensed to one form.",
       "status": "Design Complete",
       "statusIcon": "inprogress",
@@ -37,8 +33,7 @@
       "actionLink": "https://lh5.googleusercontent.com/ypZti2YPBfgQepSgOPU9eNzNzy_fT7PkpkjvUWKNKz7-mG-1-ek_TI438llWhanhX9OZ5LdrNw=w737"
     },
     {
-      "productId": "satellite",
-      "product": "Satellite",
+      "productIds": ["satellite"],
       "notes": "We need to come up with a good solution to differentiate between hosts and VMs in our iconography.",
       "status": "Blocked By Dev",
       "statusIcon": "blocked",
@@ -46,8 +41,7 @@
       "actionLink": "http://www.patternfly.org/styles/icons/"
     },
     {
-      "productId": "satellite",
-      "product": "Satellite",
+      "productIds": ["satellite"],
       "notes": "The field would like to see vertical navigation rather than horizontal.",
       "status": "Released In 6.3",
       "statusIcon": "released",

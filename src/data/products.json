@@ -37,6 +37,9 @@
         }, {
           "id": "3scale",
           "name": "3scale"
+        }, {
+          "id": "cloudforms",
+          "name": "CloudForms"
         }
       ]
     }
