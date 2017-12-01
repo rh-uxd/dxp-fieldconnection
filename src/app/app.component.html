@@ -76,11 +76,11 @@
         <tbody>
       		<tr *ngFor="let feature of featuresDisplay">
             <td>
-              <span [attr.data-balloon]="getProductGroup(feature.productId) + '/' + getProductName(feature.productId)" data-balloon-pos="right">
-                <i class="productgroup--{{getProductGroupIndex(feature.productId)}} product-icon product-icon--sm"></i>
+              <span *ngFor="let group of getMatchingProductGroups(feature.productIds)" [attr.data-balloon]="group.name" data-balloon-pos="right">
+                <i class="productgroup--{{group.index}} product-icon product-icon--sm"></i>
               </span>
             </td>
-            <td>{{feature.product}}</td>
+            <td>{{getJoinedProducts(feature.productIds)}}</td>
       			<td data-label="Notes">{{feature.notes}}</td>
       			<td data-label="Status" class="status status--{{feature.statusIcon}}">{{feature.status}}</td>
             <td data-label="Action" class="status" *ngIf="feature.actionLink"><a href="{{feature.actionLink}}" target="_blank">{{feature.action}}</a></td>

@@ -1,6 +1,5 @@
 export class FeatureModel {
-  productId: string;
-  product: string;
+  productIds: string[];
   notes: string;
   status: string;
   statusIcon: string;
