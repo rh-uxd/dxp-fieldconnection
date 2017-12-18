@@ -8,9 +8,9 @@
     },
     {
       "productIds": ["bpm"],
-      "expirationDate": "2018/10/30",
+      "expirationDate": "2017/12/22",
       "title": "Top Tasks",
-      "surveyLink": "https://docs.google.com/a/redhat.com/forms/d/e/1FAIpQLSfEXL3xonu42EO_aY8r34ft7_fQ-dWU8eW1Z6vpBiFSM-8LHQ/closedform"
+      "surveyLink": "https://docs.google.com/forms/d/e/1FAIpQLSdVepKaeBnWRl4MS5o-GbgSkTzdiyjWdgzRFfBn7DPnF2QQsA/viewform?usp=sf_link"
     },
     {
       "productIds": ["satellite"],
