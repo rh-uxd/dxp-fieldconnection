@@ -1,6 +1,22 @@
 {
   "features": [
     {
+      "productIds": ["All Products"],
+      "notes": "508 compliance and accessibility are still concerns for all of our products, especially where supported in the public sector. We should consider this in PatternFly.next.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["All Products"],
+      "notes": "Download and installation of our products still needs to be drastically improved.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
       "productIds": ["satellite","cloudforms","ansible"],
       "notes": "Patching systems within a DMZ requires using 3 different products to complete. Provision server via CloudForms, send to Satellite to upgrade software, post config via Ansible playbook.",
       "status": "In Design",
