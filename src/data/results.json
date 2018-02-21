@@ -2,6 +2,69 @@
   "results": [
     {
       "productIds": ["bpm"],
+      "resultDate": "2018/2/15",
+      "resultType": "designSession",
+      "title": "DMN Modeler - UX Review",
+      "description": "The UX team shows the latest design proposal for the latest DMN Modeler and a few larger items are discussed with the field.",
+      "reviewLink": "https://bluejeans.com/playback/s/J9vTWU1gFoxHfXsn0uI0gTYQiT02WtJ1QwSW8kJz3F6R2kD2QHK1q9RSmsn0vk2W"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2018/2/8",
+      "resultType": "designSession",
+      "title": "Process Designer NEXT Review",
+      "description": "The current implementation of Process Designer NEXT is reviewed with the larger team during a hackathon. The discussion and feedback are captured in this recording.",
+      "reviewLink": "https://bluejeans.com/playback/s/px5C0pIINM9Xpbr723a1bM7Vcz4SDixoZB1lEKlaWjfiYfa6w5vbsj7mxGBlswtq"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2018/2/1",
+      "resultType": "designSession",
+      "title": "Review of Decision Manager Installer (with EAP and Tomcat support)",
+      "description": "The current installer Decision Manager (with EAP and Tomcat support) is demoed and discussed with the field and UX.",
+      "reviewLink": "https://bluejeans.com/playback/s/UdkDvGp5BeiosalEmbT4WxcwzeKxAA6BOSuxLkCWxWsjZO9E4Nmwr1NMHV7Oszui"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2018/2/1",
+      "resultType": "designSession",
+      "title": "Review of Installer (EAP and Tomcat)",
+      "description": "The current installer for EAP is demoed and discussed with the field and UX.",
+      "reviewLink": "https://bluejeans.com/playback/s/UdkDvGp5BeiosalEmbT4WxcwzeKxAA6BOSuxLkCWxWsjZO9E4Nmwr1NMHV7Oszui"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2018/1/25",
+      "resultType": "designSession",
+      "title": "Running Decision Manager on OpenShift",
+      "description": "This meeting captures how the user can use OpenShift to create a project and run Decision Manager. There are a few hiccups finishing the process, but the UI is reviewed at the end of the meeting running in a different location.",
+      "reviewLink": "https://bluejeans.com/playback/s/LFVhZGgIjr8uta5Lm5OanESQ6mccc16cZcFmC6pK7vAQmD1hdSuiAsuA65k22pGA"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2017/11/16",
+      "resultType": "designSession",
+      "title": "Decision Manager 7.0 - Getting Started Experience",
+      "description": "The current getting started experience for Decision Manager 7.0 is shown and reviewed with the field and UX.",
+      "reviewLink": "https://bluejeans.com/playback/s/S37jOXVl8Y8iDQSyn6JbjIPwwdygrr4bdW8gAK1bUnH7iIb2ZXX93BlS3Pw30cdG"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2017/11/16",
+      "resultType": "designSession",
+      "title": "Review of current Dashbuilder, Pages, and Dashboards",
+      "description": "David Gutierrez (BPM Developer) demos the current implementation of Dashbuilder, Pages, and Dashboards and discusses any feedback from the field and UX.",
+      "reviewLink": "https://bluejeans.com/playback/s/xuXv8Xye3Shy3RCJBIQDmggD3swZlm0FGWejbMSHbhTNewUSWoF5BEzoKj3rxY7F"
+    },
+    {
+      "productIds": ["bpm"],
+      "resultDate": "2017/11/9",
+      "resultType": "designSession",
+      "title": "Scalable Workspaces Design Review",
+      "description": "The UX team walks through the current design for Scalable Workspaces and takes in feedback from the field.",
+      "reviewLink": "https://bluejeans.com/playback/s/AT7rgbdcB4Hz4pzf7hqevK2aqpdDpoFRGZDyNh9o6eYqkmvGkiajyYkkL3BoeE4S"
+    }, {
+      "productIds": ["bpm"],
       "resultDate": "2017/11/2",
       "resultType": "designSession",
       "title": "Entando and End-User Applications",

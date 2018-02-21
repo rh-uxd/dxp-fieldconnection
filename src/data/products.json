@@ -12,7 +12,11 @@
         }, {
         "id": "bpm",
         "name": "BPM"
+        }, {
+        "id": "all",
+        "name": "All Products"
         }
+
       ]
     },
     {

@@ -1,6 +1,12 @@
 {
   "surveys": [
     {
+      "productIds": ["all"],
+      "expirationDate": "2018/10/11",
+      "title": "Accessibility Support in PatternFly",
+      "surveyLink": "https://qtrial2017q3az1.az1.qualtrics.com/jfe/form/SV_a8YFAUbSjDDLUkl"
+    },
+    {
       "productIds": ["openshift"],
       "expirationDate": "2018/10/11",
       "title": "Top Tasks",
