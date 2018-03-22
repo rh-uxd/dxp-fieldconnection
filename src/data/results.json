@@ -1,6 +1,22 @@
 {
   "results": [
     {
+      "productIds": ["openstack"],
+      "resultDate": "2018/3/22",
+      "resultType": "surveyResult",
+      "title": "Users Discussions on Tiger Team Use Cases",
+      "description": "We've had a number of sessions with users who have performed these use cases. We captured a bunch of notes based on their experiences.",
+      "reviewLink": "https://docs.google.com/document/d/1syDZCC8jEgDWfIWCb_w9_byV-Po9gD7x2BGBLk5N4Pg/edit?pli=1"
+    },
+    {
+      "productIds": ["openstack"],
+      "resultDate": "2018/3/15",
+      "resultType": "surveyResult",
+      "title": "OSP Tiger Team Top Use Cases",
+      "description": "The OpenStack Tiger Team has identified the top use cases that they face at customer sites.",
+      "reviewLink": "https://docs.google.com/document/d/1zXBF_iBQLSbCdEbXcbxirIW_bZ3RBLkv_y8PedcCYyM/edit?pli=1"
+    },
+    {
       "productIds": ["bpm"],
       "resultDate": "2018/2/15",
       "resultType": "designSession",

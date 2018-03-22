@@ -1,6 +1,12 @@
 {
   "feedback": [
     {
+      "productIds": ["openstack"],
+      "startDate": "2018-05-08T10:00:00-05:00",
+      "endDate": "2018-05-10T17:00:00-05:00",
+      "description": "OpenStack - Tiger Team Use Cases Design Review (@Red Hat Summit)"
+    },
+    {
       "productIds": ["bpm"],
       "startDate": "2018-02-29T10:00:00-05:00",
       "endDate": "2018-02-29T10:55:00-05:00",

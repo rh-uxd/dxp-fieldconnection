@@ -1,6 +1,86 @@
 {
   "features": [
     {
+      "productIds": ["openstack"],
+      "notes": "Enable and configure TLS/SSL to be used in my deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "VIEW DESIGN",
+      "actionLink": "https://lizsurette.github.io/OpenStack-Design/tripleo-ui/5-popular-use-cases/1.SetupSSL"
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Enable Fernet Tokens to be used in my deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "VIEW DESIGN",
+      "actionLink": "https://lizsurette.github.io/OpenStack-Design/tripleo-ui/5-popular-use-cases/2.FernetTokens"
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Configure NIC layout for my OpenStack deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Enable and configure subscription management so that my nodes running RHEL can be registered.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Configure my overall network configuration of my OpenStack deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Enable LDAP/AD for authentication in my OpenStack deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Enable and configure 3rd party storage plugins for a deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Tune Ceph storage layout in my OpenStack deployment.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Choose one or more Operational Tools to use in my deployment. (Collectd, fluentd, sensu)",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
+      "productIds": ["openstack"],
+      "notes": "Configure deployment to use Bare Metal as a Service.",
+      "status": "In Design",
+      "statusIcon": "inprogress",
+      "action": "DESIGN TBD",
+      "actionLink": ""
+    },
+    {
       "productIds": ["all"],
       "notes": "508 compliance and accessibility are still concerns for all of our products, especially where supported in the public sector. We should consider this in PatternFly.next.",
       "status": "In Design",
