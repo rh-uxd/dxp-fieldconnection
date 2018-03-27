@@ -18,23 +18,15 @@
     },
     {
       "productIds": ["openstack"],
-      "notes": "Configure NIC layout for my OpenStack deployment.",
+      "notes": "Edit Network Configuration for my OpenStack deployment.",
       "status": "In Design",
       "statusIcon": "inprogress",
-      "action": "DESIGN TBD",
-      "actionLink": ""
+      "action": "VIEW DESIGN",
+      "actionLink": "https://lizsurette.github.io/OpenStack-Design/tripleo-ui/5-popular-use-cases/3.NetworkConfiguration"
     },
     {
       "productIds": ["openstack"],
       "notes": "Enable and configure subscription management so that my nodes running RHEL can be registered.",
-      "status": "In Design",
-      "statusIcon": "inprogress",
-      "action": "DESIGN TBD",
-      "actionLink": ""
-    },
-    {
-      "productIds": ["openstack"],
-      "notes": "Configure my overall network configuration of my OpenStack deployment.",
       "status": "In Design",
       "statusIcon": "inprogress",
       "action": "DESIGN TBD",
