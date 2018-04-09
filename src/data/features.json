@@ -29,16 +29,16 @@
       "notes": "Enable and configure subscription management so that my nodes running RHEL can be registered.",
       "status": "In Design",
       "statusIcon": "inprogress",
-      "action": "DESIGN TBD",
-      "actionLink": ""
+      "action": "VIEW DESIGN",
+      "actionLink": "https://lizsurette.github.io/OpenStack-Design/tripleo-ui/5-popular-use-cases/4.SubscriptionManagerRegistration"
     },
     {
       "productIds": ["openstack"],
       "notes": "Enable LDAP/AD for authentication in my OpenStack deployment.",
       "status": "In Design",
       "statusIcon": "inprogress",
-      "action": "DESIGN TBD",
-      "actionLink": ""
+      "action": "VIEW DESIGN",
+      "actionLink": "https://lizsurette.github.io/OpenStack-Design/tripleo-ui/5-popular-use-cases/5.Authentication"
     },
     {
       "productIds": ["openstack"],
